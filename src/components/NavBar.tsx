@@ -8,7 +8,7 @@ export function NavBar() {
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <div className="w-12 rounded">
-                            <img src={scriptIcon} />
+                            <img alt="logo" src={scriptIcon} />
                         </div>
                     </div>
                     <ul
@@ -21,7 +21,7 @@ export function NavBar() {
                 </div>
                 <div className="avatar">
                     <div className="w-12 rounded">
-                        <img src={scriptIcon} />
+                        <img alt="logo" src={scriptIcon} />
                     </div>
                 </div>
             </div>

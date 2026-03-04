@@ -23,12 +23,12 @@ export function Home() {
                     <h6 className="paragraph-regular pt-6 text-white-600 max-w-lg flex items-center">
                         Find me
                         <span className="inline-flex space-x-4 ml-2">
-                            <a href={"https://www.linkedin.com/in/firasgacha/"} target="_blank">
+                            <a href={"https://www.linkedin.com/in/firasgacha/"} target="_blank" rel="noopener noreferrer">
                                 <span className="text-twitter hover:text-[#0072b1] text-2xl">
                                     <i className="ri-linkedin-box-fill"></i>
                                 </span>
                             </a>
-                            <a href={"https://github.com/firasgacha"} target="_blank">
+                            <a href={"https://github.com/firasgacha"} target="_blank" rel="noopener noreferrer">
                                 <span className="text-github hover:text-gray-400 text-2xl">
                                     <i className="ri-github-fill"></i>
                                 </span>
