@@ -53,7 +53,10 @@
     "emailPlaceholder": "Veuillez entrer votre adresse email",
     "message": "Message",
     "messagePlaceholder": "Laissez un message",
-    "submit": "ENVOYER"
+    "submit": "ENVOYER",
+    "sending": "Envoi en cours...",
+    "success": "Merci pour votre message ! Je vous répondrai bientôt.",
+    "sendAnother": "Envoyer un autre message"
   },
   "footer": {
     "copyright": "Copyright © {{year}} Firas GACHA - Tous droits réservés"

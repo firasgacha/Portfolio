@@ -53,7 +53,10 @@
     "emailPlaceholder": "Please input email address",
     "message": "Message",
     "messagePlaceholder": "Leave a message",
-    "submit": "SUBMIT"
+    "submit": "SUBMIT",
+    "sending": "Sending...",
+    "success": "Thank you for your message! I'll get back to you soon.",
+    "sendAnother": "Send another message"
   },
   "footer": {
     "copyright": "Copyright © {{year}} Firas GACHA - All right reserved"
