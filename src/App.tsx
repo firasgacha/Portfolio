@@ -6,6 +6,7 @@ import { Work } from './pages/Work';
 import { Contact } from './pages/Contact';
 import 'remixicon/fonts/remixicon.css';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path={"/contact"} element={<Contact />} />
       </Routes>
       <Footer />
+      <ScrollToTop />
     </BrowserRouter>
   );
 }

@@ -5,6 +5,70 @@
   text-align: center;
 }
 
+/* Hover animations for cards */
+.avatar {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+  transform: translateY(-5px);
+}
+
+/* Button hover effects */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.4);
+}
+
+.btn-neutral:hover {
+  transform: translateY(-2px);
+}
+
+/* Link hover animations */
+a {
+  transition: color 0.2s ease;
+}
+
+/* Social icons hover */
+.text-twitter:hover,
+.text-github:hover {
+  transform: scale(1.2);
+}
+
+/* Timeline animations */
+.timeline-middle {
+  transition: transform 0.3s ease;
+}
+
+.timeline-middle:hover {
+  transform: scale(1.2);
+}
+
+/* Fade in animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main > section {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

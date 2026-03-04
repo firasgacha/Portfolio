@@ -69,6 +69,7 @@ export function Home() {
                               imageClassName={"w-72 rounded-full"}
                               titleClassName={"font-bold"}
                               descriptionClassName={"card-body"}
+                              loading="eager"
                         />
                     </div>
                 </div>

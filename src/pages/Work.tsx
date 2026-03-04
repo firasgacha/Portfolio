@@ -24,7 +24,7 @@ export function Work() {
                     <div className="timeline-end mb-10 md:text-start">
                         <time className="font-mono italic">07/2023 - Present</time>
                         <div className="flex items-center text-lg text-purple-600">
-                            <img className="w-8 h-8 mr-2" alt="blocksi" src={blocksiImg}/>
+                            <img className="w-8 h-8 mr-2" alt="blocksi" src={blocksiImg} loading="lazy"/>
                             <p>BLOCKSI</p>
                         </div>
                         <div>{t('work.fullStackDeveloper')} - {t('work.cdi')}</div>
@@ -39,7 +39,7 @@ export function Work() {
                     <div className="timeline-start mb-10 md:text-end">
                         <time className="font-mono italic">07/2023 - 11/2024</time>
                         <div className="flex justify-end text-lg text-purple-600">
-                            <img className="w-8 h-8 mr-2" alt="happiso" src={happisoImg}/>
+                            <img className="w-8 h-8 mr-2" alt="happiso" src={happisoImg} loading="lazy"/>
                             <p>HAPPISO</p>
                         </div>
                         <div>{t('work.fullStackDeveloper')} - {t('work.cdi')}</div>
@@ -55,7 +55,7 @@ export function Work() {
                     <div className="timeline-end mb-10 md:text-start">
                         <time className="font-mono italic">01/2023 - 07/2023</time>
                         <div className="flex items-center text-lg text-purple-600">
-                            <img className="w-8 h-8 mr-2" alt="baback" src={babackImg}/>
+                            <img className="w-8 h-8 mr-2" alt="baback" src={babackImg} loading="lazy"/>
                             <p>BABACK</p>
                         </div>
                         <div>{t('work.fullStackDeveloper')} - {t('work.internship')}</div>
@@ -71,7 +71,7 @@ export function Work() {
                     <div className="timeline-start mb-10 md:text-end">
                         <time className="font-mono italic">07/2022 - 09/2022</time>
                         <div className="flex justify-end text-lg text-purple-600">
-                            <img className="w-8 h-8 mr-2" alt="esprit" src={espritImg}/>
+                            <img className="w-8 h-8 mr-2" alt="esprit" src={espritImg} loading="lazy"/>
                             <p>ESPRIT-TECH</p>
                         </div>
                         <div>{t('work.fullStackDeveloper')} - {t('work.internship')}</div>
@@ -102,7 +102,7 @@ export function Work() {
                     <div className="timeline-start mb-10 md:text-end">
                         <time className="font-mono italic">06/2021 - 09/2021</time>
                         <div className="flex justify-end text-lg text-purple-600">
-                            <img className="w-8 h-8 mr-2" alt="devnull" src={devNullImg}/>
+                            <img className="w-8 h-8 mr-2" alt="devnull" src={devNullImg} loading="lazy"/>
                             <p>DEV NULL PRODUCTIONS</p>
                         </div>
                         <div>{t('work.fullStackDeveloper')} - {t('work.internship')}</div>
@@ -118,7 +118,7 @@ export function Work() {
                     <div className="timeline-end mb-10 md:text-start">
                         <time className="font-mono italic">02/2020 - 06/2020</time>
                         <div className="flex items-center text-lg text-purple-600">
-                            <img className="w-8 h-8 mr-2" alt="unfrauded" src={unfraundedImg}/>
+                            <img className="w-8 h-8 mr-2" alt="unfrauded" src={unfraundedImg} loading="lazy"/>
                             <p>UNFRAUDED</p>
                         </div>
                         <div>{t('work.fullStackDeveloper')} - {t('work.internship')}</div>
@@ -134,7 +134,7 @@ export function Work() {
                     <div className="timeline-start mb-10 md:text-end">
                         <time className="font-mono italic">06/2019 - 07/2019</time>
                         <div className="flex justify-end text-lg text-purple-600">
-                            <img className="w-8 h-8 mr-2" alt="coroplaste" src={coroplasteImg}/>
+                            <img className="w-8 h-8 mr-2" alt="coroplaste" src={coroplasteImg} loading="lazy"/>
                             <p>Coroplast Fritz Müller GmbH & Co. KG</p>
                         </div>
                         <div>{t('work.itTechnician')} - {t('work.internship')}</div>
@@ -150,7 +150,7 @@ export function Work() {
                     <div className="timeline-end mb-10 md:text-start">
                         <time className="font-mono italic">06/2018 - 07/2018</time>
                         <div className="flex items-center text-lg text-purple-600">
-                            <img className="w-8 h-8 mr-2" alt="tunisair" src={tunisairImg}/>
+                            <img className="w-8 h-8 mr-2" alt="tunisair" src={tunisairImg} loading="lazy"/>
                             <p>TUNISAIR</p>
                         </div>
                         <div>{t('work.itTechnician')} - {t('work.internship')}</div>
