@@ -39,7 +39,11 @@
     "cdi": "CDI",
     "internship": "Internship",
     "freelance": "Freelance",
-    "remote": "(remote)"
+    "remote": "(remote)",
+    "showDetails": "Show details",
+    "hideDetails": "Hide details",
+    "responsibilities": "Responsibilities",
+    "technologies": "Technologies"
   },
   "contact": {
     "title": "I'd love to hear from you!",

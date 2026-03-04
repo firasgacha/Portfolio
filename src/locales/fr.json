@@ -39,7 +39,11 @@
     "cdi": "CDI",
     "internship": "Stage",
     "freelance": "Freelance",
-    "remote": "(télétravail)"
+    "remote": "(télétravail)",
+    "showDetails": "Voir les détails",
+    "hideDetails": "Masquer les détails",
+    "responsibilities": "Responsabilités",
+    "technologies": "Technologies"
   },
   "contact": {
     "title": "J'adorerais avoir de vos nouvelles !",
