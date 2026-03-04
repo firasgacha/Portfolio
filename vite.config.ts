@@ -7,5 +7,5 @@ export default defineConfig({
   server: {
     port: 8007,
   },
-  base: "/Portfolio/",
+  base: "./",
 });
