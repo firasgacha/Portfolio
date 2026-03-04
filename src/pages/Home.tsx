@@ -1,27 +1,28 @@
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { HireMe } from "../components/HireMe";
 import { Tools } from "../components/Tools";
 import {Card} from "../components/Card.tsx";
 import profileImg from "../assets/profile.png";
 
 export function Home() {
+    const { t } = useTranslation();
+
     return (
         <main className="flex-center paddings mx-auto w-full max-w-screen-2xl flex-col overflow-hidden">
             <section className="flex flex-col md:flex-row nav-padding w-full items-center justify-center">
                 <div className="flex flex-col justify-center w-full p-4 md:w-1/2">
                     <div className="text-start">
-                        <h3 className="text-5xl font-bold mb-6">Hey!</h3>
-                        <h1 className="text-5xl font-bold">I'm <span className="text-purple-600">Firas</span></h1>
-                        <h1 className="text-5xl font-bold text-purple-600">Software engineer</h1>
+                        <h3 className="text-5xl font-bold mb-6">{t('home.hey')}</h3>
+                        <h1 className="text-5xl font-bold">{t('home.name')}</h1>
+                        <h1 className="text-5xl font-bold text-purple-600">{t('home.title')}</h1>
                         <p className="py-6">
-                            I am a talented developer with a strong passion for JavaScript frameworks. <br />
-
-                            I am always eager to learn, continually seeking opportunities for improvement, and ready to embrace new challenges.
+                            {t('home.description')}
                         </p>
                     </div>
 
                     <h6 className="paragraph-regular pt-6 text-white-600 max-w-lg flex items-center">
-                        Find me
+                        {t('home.findMe')}
                         <span className="inline-flex space-x-4 ml-2">
                             <a href={"https://www.linkedin.com/in/firasgacha/"} target="_blank" rel="noopener noreferrer">
                                 <span className="text-twitter hover:text-[#0072b1] text-2xl">
@@ -41,7 +42,7 @@ export function Home() {
                             <a href={`mailto:firasgacha.inbox@gmail.com`}>
                                 <span className="flex items-center space-x-2">
                                     <i className="ri-mail-line"></i>
-                                    <span>Email Me</span>
+                                    <span>{t('home.emailMe')}</span>
                                 </span>
                             </a>
                         </button>
@@ -54,7 +55,7 @@ export function Home() {
                             >
                                 <span className="flex items-center space-x-2">
                                     <i className="ri-download-cloud-line"></i>
-                                    <span>Resume</span>
+                                    <span>{t('home.resume')}</span>
                                 </span>
                             </a>
                         </button>
@@ -78,13 +79,13 @@ export function Home() {
             <HireMe />
 
             <div className="alert flex justify-between p-5 mt-10">
-                <h1 className="text-3xl font-bold">Interested in working with me?</h1>
+                <h1 className="text-3xl font-bold">{t('home.interestedTitle')}</h1>
                 <div>
                     <button className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg mr-5">
                         <NavLink to={"/contact"}>
                             <span className="flex items-center space-x-2">
                                 <i className="ri-mail-line"></i>
-                                <span>Contact Me</span>
+                                <span>{t('home.contactMe')}</span>
                             </span>
                         </NavLink>
                     </button>

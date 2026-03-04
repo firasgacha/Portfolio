@@ -8,11 +8,14 @@ import unfraundedImg from "../assets/work/unfrauded.png";
 import coroplasteImg from "../assets/work/coroplaste.png";
 import tunisairImg from "../assets/work/tunisair.png";
 import { TimelineIcon } from "../components/TimelineIcon";
+import { useTranslation } from "react-i18next";
 
 export function Work() {
+    const { t } = useTranslation();
+
     return (
         <>
-            <h1 className="text-5xl font-bold mb-8 text-purple-600">Experiences</h1>
+            <h1 className="text-5xl font-bold mb-8 text-purple-600">{t('work.title')}</h1>
             <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
                 <li>
                     <div className="timeline-middle">
@@ -24,7 +27,7 @@ export function Work() {
                             <img className="w-8 h-8 mr-2" alt="blocksi" src={blocksiImg}/>
                             <p>BLOCKSI</p>
                         </div>
-                        <div>Full Stack Developer - CDI</div>
+                        <div>{t('work.fullStackDeveloper')} - {t('work.cdi')}</div>
                         Sophia-Antipolis, France
                     </div>
                     <hr />
@@ -39,7 +42,7 @@ export function Work() {
                             <img className="w-8 h-8 mr-2" alt="happiso" src={happisoImg}/>
                             <p>HAPPISO</p>
                         </div>
-                        <div>Full Stack Developer - CDI</div>
+                        <div>{t('work.fullStackDeveloper')} - {t('work.cdi')}</div>
                         Metz, France
                     </div>
                     <hr />
@@ -55,7 +58,7 @@ export function Work() {
                             <img className="w-8 h-8 mr-2" alt="baback" src={babackImg}/>
                             <p>BABACK</p>
                         </div>
-                        <div>Full Stack Developer - Internship</div>
+                        <div>{t('work.fullStackDeveloper')} - {t('work.internship')}</div>
                         Strasbourg, France
                     </div>
                     <hr />
@@ -71,7 +74,7 @@ export function Work() {
                             <img className="w-8 h-8 mr-2" alt="esprit" src={espritImg}/>
                             <p>ESPRIT-TECH</p>
                         </div>
-                        <div>Full Stack Developer - Internship</div>
+                        <div>{t('work.fullStackDeveloper')} - {t('work.internship')}</div>
                         Ariana, Tunisie
                     </div>
                     <hr/>
@@ -86,8 +89,8 @@ export function Work() {
                         <div className="flex items-center text-lg text-purple-600">
                             <p>OBY-DIGITAL</p>
                         </div>
-                        <div>Web Developer - Freelance</div>
-                        Paris, France (remote)
+                        <div>{t('work.webDeveloper')} - {t('work.freelance')}</div>
+                        Paris, France {t('work.remote')}
                     </div>
                     <hr />
                 </li>
@@ -102,8 +105,8 @@ export function Work() {
                             <img className="w-8 h-8 mr-2" alt="devnull" src={devNullImg}/>
                             <p>DEV NULL PRODUCTIONS</p>
                         </div>
-                        <div>Full Stack Developer - Internship</div>
-                        New York, USA (remote)
+                        <div>{t('work.fullStackDeveloper')} - {t('work.internship')}</div>
+                        New York, USA {t('work.remote')}
                     </div>
                     <hr/>
                 </li>
@@ -118,7 +121,7 @@ export function Work() {
                             <img className="w-8 h-8 mr-2" alt="unfrauded" src={unfraundedImg}/>
                             <p>UNFRAUDED</p>
                         </div>
-                        <div>Full Stack Developer - Internship</div>
+                        <div>{t('work.fullStackDeveloper')} - {t('work.internship')}</div>
                         Ariana, Tunisie
                     </div>
                     <hr />
@@ -134,7 +137,7 @@ export function Work() {
                             <img className="w-8 h-8 mr-2" alt="coroplaste" src={coroplasteImg}/>
                             <p>Coroplast Fritz Müller GmbH & Co. KG</p>
                         </div>
-                        <div>IT Technician - Internship</div>
+                        <div>{t('work.itTechnician')} - {t('work.internship')}</div>
                         Hammamet, Nabeul
                     </div>
                     <hr/>
@@ -150,7 +153,7 @@ export function Work() {
                             <img className="w-8 h-8 mr-2" alt="tunisair" src={tunisairImg}/>
                             <p>TUNISAIR</p>
                         </div>
-                        <div>IT Technician - Internship</div>
+                        <div>{t('work.itTechnician')} - {t('work.internship')}</div>
                         Ariana, Tunisie
                     </div>
                 </li>

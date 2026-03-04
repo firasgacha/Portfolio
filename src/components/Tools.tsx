@@ -1,10 +1,13 @@
+import { useTranslation } from "react-i18next";
 import { technologies } from "../data/data";
 import { Card } from "./Card";
 
 export function Tools() {
+    const { t } = useTranslation();
+    
     return (
         <div>
-            <h1 className="text-2xl font-bold mb-8 text-purple-600 mt-28">Tools, Languages & Frameworks / Libraries</h1>
+            <h1 className="text-2xl font-bold mb-8 text-purple-600 mt-28">{t('tools.title')}</h1>
             <div className="flex flex-wrap justify-center content-center">
                 {technologies.map((tech, index) => (
                     <Card key={index}
