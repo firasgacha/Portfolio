@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { HireMe } from "../components/HireMe";
 import { Tools } from "../components/Tools";
-import {Card} from "../components/Card.tsx";
 import profileImg from "../assets/profile.png";
 
 export function Home() {
@@ -63,15 +62,12 @@ export function Home() {
                 </div>
 
                 <div className="hidden md:flex items-center justify-center w-full md:w-1/2 p-4">
-                    <div className="avatar">
-                        <Card image={profileImg}
-                              name={"profile-img"}
-                              imageClassName={"w-72 rounded-full"}
-                              titleClassName={"font-bold"}
-                              descriptionClassName={"card-body"}
-                              loading="eager"
-                        />
-                    </div>
+                    <img 
+                        src={profileImg} 
+                        alt="Profile" 
+                        className="w-72 rounded-full object-cover"
+                        loading="eager"
+                    />
                 </div>
             </section>
 
