@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "work": "Expériences",
+    "contact": "Contact",
+    "darkMode": "Mode sombre",
+    "lightMode": "Mode clair"
+  },
+  "home": {
+    "hey": "Salut!",
+    "name": "Je suis Firas",
+    "title": "Ingénieur Logiciel",
+    "description": "Je suis un développeur talenté avec une forte passion pour les frameworks JavaScript. Je suis toujours impatient d'apprendre, cherchant constamment des opportunités d'amélioration et prêt à relever de nouveaux défis.",
+    "findMe": "Suivez-moi",
+    "emailMe": "Envoyer un email",
+    "resume": "CV",
+    "interestedTitle": "Intéressé à travailler avec moi ?",
+    "contactMe": "Me contacter"
+  },
+  "tools": {
+    "title": "Outils, Langages & Frameworks / Bibliothèques"
+  },
+  "hireMe": {
+    "title": "Pourquoi me recruter ?",
+    "workaholic": "Workaholic",
+    "workaholicDesc": "Les délais ne me course pas, je reste en avance dessus.",
+    "communicative": "Communicatif",
+    "communicativeDesc": "Je'équilibre entre parler et écouter pour une communication claire.",
+    "collaborative": "Collaboratif",
+    "collaborativeDesc": "La collaboration est la clé du succès, le travail d'équipe transforme la vision en réalité.",
+    "selfMotivated": "Autonome",
+    "selfMotivatedDesc": "Je prends des mesures proactives pour atteindre mes objectifs."
+  },
+  "work": {
+    "title": "Expériences",
+    "fullStackDeveloper": "Développeur Full Stack",
+    "webDeveloper": "Développeur Web",
+    "itTechnician": "Technicien IT",
+    "cdi": "CDI",
+    "internship": "Stage",
+    "freelance": "Freelance",
+    "remote": "(télétravail)",
+    "showDetails": "Voir les détails",
+    "hideDetails": "Masquer les détails",
+    "responsibilities": "Responsabilités",
+    "technologies": "Technologies"
+  },
+  "contact": {
+    "title": "J'adorerais avoir de vos nouvelles !",
+    "name": "Nom",
+    "namePlaceholder": "Veuillez entrer votre nom",
+    "email": "Adresse email",
+    "emailPlaceholder": "Veuillez entrer votre adresse email",
+    "message": "Message",
+    "messagePlaceholder": "Laissez un message",
+    "submit": "ENVOYER",
+    "sending": "Envoi en cours...",
+    "success": "Merci pour votre message ! Je vous répondrai bientôt.",
+    "sendAnother": "Envoyer un autre message",
+    "error": "Une erreur s'est produite. Veuillez réessayer ou m'envoyer un email directement."
+  },
+  "footer": {
+    "copyright": "Copyright © {{year}} Firas GACHA - Tous droits réservés"
+  }
+}

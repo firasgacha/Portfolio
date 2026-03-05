@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "contact": "Contact",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
+  },
+  "home": {
+    "hey": "Hey!",
+    "name": "I'm Firas",
+    "title": "Software Engineer",
+    "description": "I am a talented developer with a strong passion for JavaScript frameworks. I am always eager to learn, continually seeking opportunities for improvement, and ready to embrace new challenges.",
+    "findMe": "Find me",
+    "emailMe": "Email Me",
+    "resume": "Resume",
+    "interestedTitle": "Interested in working with me?",
+    "contactMe": "Contact Me"
+  },
+  "tools": {
+    "title": "Tools, Languages & Frameworks / Libraries"
+  },
+  "hireMe": {
+    "title": "Why Hire Me ?",
+    "workaholic": "Workaholic",
+    "workaholicDesc": "Deadlines don't chase me, I stay ahead of them.",
+    "communicative": "Communicative",
+    "communicativeDesc": "I balance speaking and listening for clear communication.",
+    "collaborative": "Collaborative",
+    "collaborativeDesc": "Collaboration is the key to success, teamwork turns vision into reality.",
+    "selfMotivated": "Self Motivated",
+    "selfMotivatedDesc": "I take proactive steps to accomplish my goals."
+  },
+  "work": {
+    "title": "Experiences",
+    "fullStackDeveloper": "Full Stack Developer",
+    "webDeveloper": "Web Developer",
+    "itTechnician": "IT Technician",
+    "cdi": "CDI",
+    "internship": "Internship",
+    "freelance": "Freelance",
+    "remote": "(remote)",
+    "showDetails": "Show details",
+    "hideDetails": "Hide details",
+    "responsibilities": "Responsibilities",
+    "technologies": "Technologies"
+  },
+  "contact": {
+    "title": "I'd love to hear from you!",
+    "name": "Name",
+    "namePlaceholder": "Please input name",
+    "email": "Email Address",
+    "emailPlaceholder": "Please input email address",
+    "message": "Message",
+    "messagePlaceholder": "Leave a message",
+    "submit": "SUBMIT",
+    "sending": "Sending...",
+    "success": "Thank you for your message! I'll get back to you soon.",
+    "sendAnother": "Send another message",
+    "error": "Something went wrong. Please try again or email me directly."
+  },
+  "footer": {
+    "copyright": "Copyright © {{year}} Firas GACHA - All right reserved"
+  }
+}
