@@ -11,7 +11,7 @@ export function Contact() {
     const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
     // Replace with your Formspree form ID after creating an account at https://formspree.io
-    const FORMSPREE_FORM_ID = "xaqdraqg";
+    const FORMSPREE_FORM_ID = import.meta.env.VITE_FORMSPREE_FORM_ID || "xaqdraqg";
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -61,7 +61,7 @@ export function Contact() {
                             onClick={() => setStatus("idle")}
                             className="mt-4 btn btn-sm btn-outline"
                         >
-                            {t('contact.sendAnother') || "Send another message"}
+                            {t('contact.sendAnother')}
                         </button>
                     </div>
                 ) : (
@@ -71,12 +71,13 @@ export function Contact() {
                                 <label className="text-base font-semibold leading-none">{t('contact.name')}</label>
                                 <input 
                                     tabIndex={0} 
-                                    arial-label="Please input name" 
+                                    aria-label="Please input name" 
                                     type="text" 
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
+                                    pattern="[a-zA-Z\s]+"
                                     className="text-base leading-none p-3 focus:oultine-none focus:border-primary mt-4 bg-base-200 border rounded border-base-300 placeholder:text-base-content/40" 
                                     placeholder={t('contact.namePlaceholder')} 
                                 />
@@ -85,12 +86,13 @@ export function Contact() {
                                 <label className="text-base font-semibold leading-none">{t('contact.email')}</label>
                                 <input 
                                     tabIndex={0} 
-                                    arial-label="Please input email address" 
+                                    aria-label="Please input email address" 
                                     type="email" 
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
+                                    pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                                     className="text-base leading-none p-3 focus:oultine-none focus:border-primary mt-4 bg-base-200 border rounded border-base-300 placeholder:text-base-content/40" 
                                     placeholder={t('contact.emailPlaceholder')} 
                                 />
@@ -115,7 +117,7 @@ export function Contact() {
                         
                         {status === "error" && (
                             <div className="mt-4 p-3 bg-error/20 text-error rounded-lg text-center">
-                                <p>Something went wrong. Please try again or email me directly.</p>
+                                <p>{t('contact.error') || "Something went wrong. Please try again or email me directly."}</p>
                             </div>
                         )}
                         
@@ -125,7 +127,7 @@ export function Contact() {
                                 disabled={status === "submitting"}
                                 className="mt-9 text-base font-semibold leading-none text-white py-4 px-10 bg-primary rounded hover:bg-primary-focus focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                {status === "submitting" ? t('contact.sending') || "Sending..." : t('contact.submit')}
+                                {status === "submitting" ? t('contact.sending') : t('contact.submit')}
                             </button>
                         </div>
                     </form>

@@ -56,7 +56,8 @@
     "submit": "SUBMIT",
     "sending": "Sending...",
     "success": "Thank you for your message! I'll get back to you soon.",
-    "sendAnother": "Send another message"
+    "sendAnother": "Send another message",
+    "error": "Something went wrong. Please try again or email me directly."
   },
   "footer": {
     "copyright": "Copyright © {{year}} Firas GACHA - All right reserved"

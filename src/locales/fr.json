@@ -56,7 +56,8 @@
     "submit": "ENVOYER",
     "sending": "Envoi en cours...",
     "success": "Merci pour votre message ! Je vous répondrai bientôt.",
-    "sendAnother": "Envoyer un autre message"
+    "sendAnother": "Envoyer un autre message",
+    "error": "Une erreur s'est produite. Veuillez réessayer ou m'envoyer un email directement."
   },
   "footer": {
     "copyright": "Copyright © {{year}} Firas GACHA - Tous droits réservés"
