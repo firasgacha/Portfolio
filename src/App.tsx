@@ -1,7 +1,7 @@
 import './App.css';
 import { NavBar } from './components/NavBar';
 import { Home } from './pages/Home';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { Work } from './pages/Work';
 import { Contact } from './pages/Contact';
 import 'remixicon/fonts/remixicon.css';
@@ -12,7 +12,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 function App() {
 
   return (
-    <BrowserRouter basename="/Portfolio">
+    <HashRouter>
       <NavBar />
       <Routes>
         <Route path={"/"} element={<Home />} />
@@ -21,7 +21,7 @@ function App() {
       </Routes>
       <Footer />
       <ScrollToTop />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
