@@ -79,7 +79,7 @@ export function Home() {
                 <h1 className="text-3xl font-bold">{t('home.interestedTitle')}</h1>
                 <div>
                     <button className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg mr-5">
-                        <NavLink to={"/contact"}>
+                        <NavLink to={"/#/contact"}>
                             <span className="flex items-center space-x-2">
                                 <i className="ri-mail-line"></i>
                                 <span>{t('home.contactMe')}</span>
