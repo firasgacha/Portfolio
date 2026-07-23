@@ -2,14 +2,9 @@ import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { HireMe } from "../components/HireMe";
 import { Tools } from "../components/Tools";
+import { jsPDF } from "jspdf";
 import profileImg from "../assets/profile.png";
 import { experiences, technologies, github } from "../data/data";
-
-declare global {
-    interface Window {
-        html2pdf: any;
-    }
-}
 
 export function Home() {
     const { t, i18n } = useTranslation();
@@ -17,107 +12,135 @@ export function Home() {
     const downloadCv = async () => {
         try {
             const currentLang = i18n.language === 'fr' ? 'fr' : 'en';
-            console.log('[CV] Starting PDF generation, language:', currentLang);
-
-            const profileSection = `
-                <div style="text-align: center; margin-bottom: 20px;">
-                    <img src="${profileImg}" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;" />
-                    <h1 style="margin: 0; color: #7c3aed;">Firas GACHA</h1>
-                    <p style="margin: 5px 0; color: #374151;">Full Stack Developer</p>
-                    <p style="margin: 5px 0; font-size: 14px; color: #6b7280;">firasgacha.inbox@gmail.com | ${github}</p>
-                </div>
-            `;
-
-            const experienceSection = experiences.map((exp, index) => {
-                const responsibilities = currentLang === 'fr' ? exp.responsibilities.fr : exp.responsibilities.en;
-
-                return `
-                    <div style="margin-bottom: 20px; padding-bottom: 15px; ${index < experiences.length - 1 ? 'border-bottom: 1px solid #e5e7eb;' : ''}">
-                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
-                            <div>
-                                <h3 style="margin: 0; color: #7c3aed; font-size: 18px;">${exp.company}</h3>
-                                <p style="margin: 4px 0; color: #374151; font-size: 14px;">${t(`work.${exp.role}`)} - ${t(`work.${exp.type}`)}</p>
-                            </div>
-                            <div style="text-align: right; font-size: 12px; color: #6b7280;">
-                                <p style="margin: 0;">${exp.dates}</p>
-                                <p style="margin: 4px 0 0 0;">${exp.location}</p>
-                            </div>
-                        </div>
-                        <ul style="margin: 8px 0; padding-left: 20px; color: #4b5563; font-size: 13px; line-height: 1.6;">
-                            ${responsibilities.map(resp => `<li style="margin-bottom: 4px;">${resp}</li>`).join('')}
-                        </ul>
-                        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;">
-                            ${exp.technologies.map(tech => `<span style="background: #f3e8ff; color: #7c3aed; padding: 2px 8px; border-radius: 12px; font-size: 11px;">${tech}</span>`).join('')}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-            const toolsSection = technologies.map(tech => `<span style="background: #f3e8ff; color: #7c3aed; padding: 4px 10px; border-radius: 12px; font-size: 12px; margin: 4px; display: inline-block;">${tech.name}</span>`).join('');
-
-            const cvHtml = `
-                <div style="max-width: 800px; margin: 0 auto; padding: 30px; font-family: Arial, sans-serif;">
-                    ${profileSection}
-                    <div style="margin-bottom: 25px;">
-                        <h2 style="color: #7c3aed; font-size: 20px; margin-bottom: 12px; border-bottom: 2px solid #7c3aed; padding-bottom: 5px;">${t('work.title') || 'Work Experience'}</h2>
-                        ${experienceSection}
-                    </div>
-                    <div style="margin-bottom: 25px;">
-                        <h2 style="color: #7c3aed; font-size: 20px; margin-bottom: 12px; border-bottom: 2px solid #7c3aed; padding-bottom: 5px;">${t('tools.title') || 'Tools & Technologies'}</h2>
-                        <div style="margin-top: 10px;">${toolsSection}</div>
-                    </div>
-                </div>
-            `;
-
-            const element = document.createElement('div');
-            element.innerHTML = cvHtml;
-            element.style.position = 'fixed';
-            element.style.left = '-9999px';
-            element.style.top = '0';
-            document.body.appendChild(element);
-
-            const opt = {
-                margin: 10,
-                filename: 'Firas_GACHA_CV.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            const doc = new jsPDF('p', 'mm', 'a4');
+            
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const pageHeight = doc.internal.pageSize.getHeight();
+            const margin = 15;
+            const contentWidth = pageWidth - (margin * 2);
+            let y = margin;
+            
+            const purple: [number, number, number] = [124, 58, 237];
+            const darkText: [number, number, number] = [55, 65, 81];
+            const lightText: [number, number, number] = [107, 114, 128];
+            
+            const checkPageBreak = (needed: number) => {
+                if (y + needed > pageHeight - margin) {
+                    doc.addPage();
+                    y = margin;
+                }
             };
-
-            const generatePdf = () => {
-                console.log('[CV] html2pdf is available, generating...');
-                return window.html2pdf().set(opt).from(element).save();
-            };
-
-            if (window.html2pdf) {
-                await generatePdf();
-            } else {
-                console.log('[CV] html2pdf not loaded, injecting script...');
-                await new Promise<void>((resolve, reject) => {
-                    const script = document.createElement('script');
-                    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
-                    script.onload = () => {
-                        console.log('[CV] html2pdf script loaded');
-                        resolve();
-                    };
-                    script.onerror = () => {
-                        console.error('[CV] Failed to load html2pdf script');
-                        reject(new Error('Failed to load PDF library'));
-                    };
-                    document.head.appendChild(script);
+            
+            // Try to add profile image
+            try {
+                const imgResponse = await fetch(profileImg);
+                const imgBlob = await imgResponse.blob();
+                const imgBase64 = await new Promise<string>((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => resolve(reader.result as string);
+                    reader.onerror = reject;
+                    reader.readAsDataURL(imgBlob);
                 });
-                await generatePdf();
+                
+                const imgSize = 25;
+                doc.addImage(imgBase64, 'PNG', margin, y, imgSize, imgSize);
+                y += imgSize + 5;
+            } catch (imgError) {
+                console.warn('[CV] Could not load profile image:', imgError);
             }
-
+            
+            // Name
+            doc.setFontSize(18);
+            doc.setTextColor(...purple);
+            doc.setFont('helvetica', 'bold');
+            doc.text('Firas GACHA', margin, y);
+            y += 7;
+            
+            // Title
+            doc.setFontSize(12);
+            doc.setTextColor(...darkText);
+            doc.setFont('helvetica', 'normal');
+            doc.text('Full Stack Developer', margin, y);
+            y += 6;
+            
+            // Contact
+            doc.setFontSize(10);
+            doc.setTextColor(...lightText);
+            doc.text(`firasgacha.inbox@gmail.com | ${github}`, margin, y);
+            y += 10;
+            
+            // Work Experience
+            checkPageBreak(15);
+            doc.setFontSize(16);
+            doc.setTextColor(...purple);
+            doc.setFont('helvetica', 'bold');
+            doc.text('Work Experience', margin, y);
+            doc.setDrawColor(...purple);
+            doc.setLineWidth(0.5);
+            doc.line(margin, y + 1, pageWidth - margin, y + 1);
+            y += 8;
+            
+            experiences.forEach((exp) => {
+                checkPageBreak(30);
+                
+                const responsibilities = currentLang === 'fr' ? exp.responsibilities.fr : exp.responsibilities.en;
+                
+                doc.setFontSize(11);
+                doc.setTextColor(...purple);
+                doc.setFont('helvetica', 'bold');
+                doc.text(exp.company, margin, y);
+                y += 5;
+                
+                doc.setFontSize(10);
+                doc.setTextColor(...darkText);
+                doc.setFont('helvetica', 'normal');
+                doc.text(`${t(`work.${exp.role}`)} - ${t(`work.${exp.type}`)}`, margin, y);
+                y += 5;
+                
+                doc.setTextColor(...lightText);
+                doc.setFontSize(9);
+                doc.text(exp.dates, pageWidth - margin, y, { align: 'right' });
+                doc.text(exp.location, pageWidth - margin, y + 4, { align: 'right' });
+                doc.setTextColor(...darkText);
+                y += 10;
+                
+                doc.setFontSize(10);
+                responsibilities.forEach((resp) => {
+                    checkPageBreak(6);
+                    const lines = doc.splitTextToSize('- ' + resp, contentWidth - 5);
+                    doc.text(lines, margin + 3, y);
+                    y += lines.length * 5;
+                });
+                
+                doc.setFontSize(9);
+                doc.setTextColor(...purple);
+                const techLines = doc.splitTextToSize(exp.technologies.join(', '), contentWidth);
+                doc.text(techLines, margin, y + 3);
+                y += techLines.length * 5 + 3;
+            });
+            
+            // Tools
+            checkPageBreak(15);
+            doc.setFontSize(16);
+            doc.setTextColor(...purple);
+            doc.setFont('helvetica', 'bold');
+            doc.text('Tools & Technologies', margin, y);
+            doc.setDrawColor(...purple);
+            doc.setLineWidth(0.5);
+            doc.line(margin, y + 1, pageWidth - margin, y + 1);
+            y += 8;
+            
+            doc.setFontSize(10);
+            doc.setTextColor(...darkText);
+            const toolsLines = doc.splitTextToSize(technologies.map(t => t.name).join(', '), contentWidth);
+            doc.text(toolsLines, margin, y);
+            
+            doc.save('Firas_GACHA_CV.pdf');
             console.log('[CV] PDF generated successfully');
+            
         } catch (error) {
             console.error('[CV] Error generating PDF:', error);
-            alert('Unable to generate PDF. Please check your internet connection and try again.');
-        } finally {
-            const element = document.querySelector('div[style*="position: fixed"]');
-            if (element && element.parentNode) {
-                element.parentNode.removeChild(element);
-            }
+            alert('Unable to generate PDF. Please check your connection and try again.');
         }
     };
 
