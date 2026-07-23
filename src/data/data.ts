@@ -38,7 +38,7 @@ import unfraundedImg from "../assets/work/unfrauded.png";
 import coroplasteImg from "../assets/work/coroplaste.png";
 import tunisairImg from "../assets/work/tunisair.png";
 
-const github = "https://github.com/firasgacha/";
+export const github = "https://github.com/firasgacha/";
 
 export const technologies = [
   {

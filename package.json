@@ -3,7 +3,8 @@
   "homepage": "https://firasgacha.github.io/Portfolio",
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
+   "scripts": {
+    "preinstall": "node -e \"process.version.startsWith('v24.') || (console.error('Error: Node.js 24.x is required. Current: ' + process.version), process.exit(1))\"",
     "dev": "vite",
     "clean": "rm -rf dist",
     "build": "tsc -b && vite build",
