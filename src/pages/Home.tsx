@@ -20,6 +20,7 @@ export function Home() {
             const contentWidth = pageWidth - (margin * 2);
             let y = margin;
             
+            // Brand Colors
             const purple: [number, number, number] = [124, 58, 237];
             const darkText: [number, number, number] = [55, 65, 81];
             const lightText: [number, number, number] = [107, 114, 128];
@@ -27,11 +28,14 @@ export function Home() {
             const checkPageBreak = (needed: number) => {
                 if (y + needed > pageHeight - margin) {
                     doc.addPage();
-                    y = margin;
+                    y = margin + 5; 
                 }
             };
+    
+            // --- HEADER SECTION ---
+            let headerTextX = margin;
+            let headerHeight = 0;
             
-            // Try to add profile image
             try {
                 const imgResponse = await fetch(profileImg);
                 const imgBlob = await imgResponse.blob();
@@ -43,104 +47,123 @@ export function Home() {
                 });
                 
                 const imgSize = 25;
-                doc.addImage(imgBase64, 'PNG', margin, y, imgSize, imgSize);
-                y += imgSize + 5;
+                doc.addImage(imgBase64, 'PNG', margin, y, imgSize, 35);
+                headerTextX = margin + imgSize + 8; 
+                headerHeight = imgSize;
             } catch (imgError) {
                 console.warn('[CV] Could not load profile image:', imgError);
+                headerHeight = 20; 
             }
             
-            // Name
-            doc.setFontSize(18);
+            // Name & Title (Left aligned, beside image)
+            const textStartY = y + 8; 
+            doc.setFontSize(22);
             doc.setTextColor(...purple);
             doc.setFont('helvetica', 'bold');
-            doc.text('Firas GACHA', margin, y);
-            y += 7;
+            doc.text('Firas GACHA', headerTextX, textStartY);
             
-            // Title
             doc.setFontSize(12);
             doc.setTextColor(...darkText);
             doc.setFont('helvetica', 'normal');
-            doc.text('Full Stack Developer', margin, y);
-            y += 6;
+            doc.text('Full Stack Developer', headerTextX, textStartY + 7);
             
-            // Contact
-            doc.setFontSize(10);
+            // Contact (Right aligned in the header)
+            doc.setFontSize(9);
             doc.setTextColor(...lightText);
-            doc.text(`firasgacha.inbox@gmail.com | ${github}`, margin, y);
-            y += 10;
+            doc.text('firasgacha.inbox@gmail.com', pageWidth - margin, textStartY, { align: 'right' });
+            doc.text(`GitHub: ${github}`, pageWidth - margin, textStartY + 5, { align: 'right' });
             
-            // Work Experience
+            // ADDED MORE SPACE HERE: Increased padding from 12 to 25
+            y += Math.max(headerHeight, 20) + 25; 
+            
+            // --- WORK EXPERIENCE SECTION ---
             checkPageBreak(15);
-            doc.setFontSize(16);
+            doc.setFontSize(14);
             doc.setTextColor(...purple);
             doc.setFont('helvetica', 'bold');
-            doc.text('Work Experience', margin, y);
+            const experienceTitle = t('work.title'); 
+            doc.text(experienceTitle.toUpperCase(), margin, y);
+            
+            // Separator Line
             doc.setDrawColor(...purple);
             doc.setLineWidth(0.5);
-            doc.line(margin, y + 1, pageWidth - margin, y + 1);
-            y += 8;
+            doc.line(margin, y + 2, pageWidth - margin, y + 2);
+            y += 10;
             
             experiences.forEach((exp) => {
-                checkPageBreak(30);
-                
+                checkPageBreak(35);
                 const responsibilities = currentLang === 'fr' ? exp.responsibilities.fr : exp.responsibilities.en;
                 
-                doc.setFontSize(11);
+                // Company & Dates (Same line)
+                doc.setFontSize(12);
                 doc.setTextColor(...purple);
                 doc.setFont('helvetica', 'bold');
                 doc.text(exp.company, margin, y);
-                y += 5;
                 
                 doc.setFontSize(10);
-                doc.setTextColor(...darkText);
-                doc.setFont('helvetica', 'normal');
-                doc.text(`${t(`work.${exp.role}`)} - ${t(`work.${exp.type}`)}`, margin, y);
-                y += 5;
-                
                 doc.setTextColor(...lightText);
-                doc.setFontSize(9);
+                doc.setFont('helvetica', 'normal');
                 doc.text(exp.dates, pageWidth - margin, y, { align: 'right' });
-                doc.text(exp.location, pageWidth - margin, y + 4, { align: 'right' });
-                doc.setTextColor(...darkText);
-                y += 10;
+                y += 5;
                 
+                // Role & Location (Same line)
+                doc.setFontSize(10.5);
+                doc.setTextColor(...darkText);
+                doc.setFont('helvetica', 'bold');
+                doc.text(`${t(`work.${exp.role}`)} - ${t(`work.${exp.type}`)}`, margin, y);
+                
+                doc.setFontSize(9);
+                doc.setTextColor(...lightText);
+                doc.setFont('helvetica', 'normal');
+                doc.text(exp.location, pageWidth - margin, y, { align: 'right' });
+                y += 7;
+                
+                // Responsibilities (Bullet points)
                 doc.setFontSize(10);
+                doc.setTextColor(...darkText);
                 responsibilities.forEach((resp) => {
-                    checkPageBreak(6);
-                    const lines = doc.splitTextToSize('- ' + resp, contentWidth - 5);
-                    doc.text(lines, margin + 3, y);
+                    checkPageBreak(8);
+                    const lines = doc.splitTextToSize(`•  ${resp}`, contentWidth - 4);
+                    doc.text(lines, margin + 2, y);
                     y += lines.length * 5;
                 });
                 
+                // Technologies Used
                 doc.setFontSize(9);
                 doc.setTextColor(...purple);
-                const techLines = doc.splitTextToSize(exp.technologies.join(', '), contentWidth);
-                doc.text(techLines, margin, y + 3);
-                y += techLines.length * 5 + 3;
+                doc.setFont('helvetica', 'italic');
+                const techPrefix = currentLang === 'fr' ? 'Technologies : ' : 'Tech Stack: ';
+                const techLines = doc.splitTextToSize(`${techPrefix}${exp.technologies.join(', ')}`, contentWidth);
+                doc.text(techLines, margin, y + 2);
+                y += techLines.length * 5 + 6; 
             });
             
-            // Tools
-            checkPageBreak(15);
-            doc.setFontSize(16);
+            // --- TOOLS & TECHNOLOGIES SECTION ---
+            checkPageBreak(25);
+            doc.setFontSize(14);
             doc.setTextColor(...purple);
             doc.setFont('helvetica', 'bold');
-            doc.text('Tools & Technologies', margin, y);
+            const toolsTitle = t('cv.tools') || 'Tools & Technologies';
+            doc.text(toolsTitle.toUpperCase(), margin, y);
+            
             doc.setDrawColor(...purple);
             doc.setLineWidth(0.5);
-            doc.line(margin, y + 1, pageWidth - margin, y + 1);
+            doc.line(margin, y + 2, pageWidth - margin, y + 2);
             y += 8;
             
             doc.setFontSize(10);
             doc.setTextColor(...darkText);
-            const toolsLines = doc.splitTextToSize(technologies.map(t => t.name).join(', '), contentWidth);
-            doc.text(toolsLines, margin, y);
+            doc.setFont('helvetica', 'normal');
+            const toolsLines = doc.splitTextToSize(technologies.map(t => t.name).join(' • '), contentWidth);
+            doc.text(toolsLines, margin, y + 2);
             
-            doc.save('Firas_GACHA_CV.pdf');
+            // --- SAVE ---
+            doc.save('GACHA_CV.pdf');
             console.log('[CV] PDF generated successfully');
             
         } catch (error) {
             console.error('[CV] Error generating PDF:', error);
-            alert('Unable to generate PDF. Please check your connection and try again.');
+            alert(t('cv.error') || 'Unable to generate PDF. Please check your connection and try again.');
         }
     };
 
