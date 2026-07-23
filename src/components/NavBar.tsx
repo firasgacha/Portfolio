@@ -22,9 +22,9 @@ export function NavBar() {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><NavLink to={"/#"}>{t('nav.home')}</NavLink></li>
-                        <li><NavLink to={"/#/work"}>{t('nav.work')}</NavLink></li>
-                        <li><NavLink to={"/#/contact"}>{t('nav.contact')}</NavLink></li>
+                        <li><NavLink to={"/"}>{t('nav.home')}</NavLink></li>
+                        <li><NavLink to={"/work"}>{t('nav.work')}</NavLink></li>
+                        <li><NavLink to={"/contact"}>{t('nav.contact')}</NavLink></li>
                     </ul>
                 </div>
                 <div className="avatar">
@@ -35,9 +35,9 @@ export function NavBar() {
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><NavLink to={"/#"}>{t('nav.home')}</NavLink></li>
-                    <li><NavLink to={"/#/work"}>{t('nav.work')}</NavLink></li>
-                    <li><NavLink to={"/#/contact"}>{t('nav.contact')}</NavLink></li>
+                    <li><NavLink to={"/"}>{t('nav.home')}</NavLink></li>
+                    <li><NavLink to={"/work"}>{t('nav.work')}</NavLink></li>
+                    <li><NavLink to={"/contact"}>{t('nav.contact')}</NavLink></li>
                 </ul>
                 <ThemeToggle />
                 <button 
