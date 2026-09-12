@@ -17,7 +17,15 @@ npm test
 npm run lint
 ```
 
-The app is published to GitHub Pages from `main` via `.github/workflows/deploy.yml`. Do not use `gh-pages` to push `dist` onto `main`.
+The production site is the Vite **build** (`dist`), not the source on `main`.
+
+After pushing to `main`, GitHub Actions publishes `dist` to the `gh-pages` branch. Then set Pages to that branch:
+
+1. Open [Pages settings](https://github.com/firasgacha/Portfolio/settings/pages)
+2. **Source:** Deploy from a branch
+3. **Branch:** `gh-pages` / `/(root)` → Save
+
+Alternatively set **Source** to **GitHub Actions**. Do not point Pages at `main`; that serves `/src/main.tsx` and the app 404s.
 
 ## Contact form
 

@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -42,6 +42,13 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: ./dist
+
+      - name: Publish dist to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
+          clean: true
 
   deploy:
     needs: build
