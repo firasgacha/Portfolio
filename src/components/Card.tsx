@@ -30,7 +30,7 @@ export function Card(props: CardProps) {
         <div className={props.className}>
             <div className="avatar">
                 <div className={props.imageClassName}>
-                    <img alt="tool-image" src={props.image} loading={props.loading || "lazy"} />
+                    <img alt={props.name} src={props.image} loading={props.loading || "lazy"} />
                 </div>
             </div>
             <h4 className={props.titleClassName}>

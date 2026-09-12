@@ -1,16 +1,24 @@
 {
+  "meta": {
+    "siteTitle": "Firas Gacha - Mid-Senior Software Engineer"
+  },
   "nav": {
     "home": "Home",
     "work": "Work",
+    "projects": "Projects",
     "contact": "Contact",
     "darkMode": "Dark Mode",
-    "lightMode": "Light Mode"
+    "lightMode": "Light Mode",
+    "menu": "Open menu",
+    "toggleLanguage": "Switch language",
+    "skipToContent": "Skip to content",
+    "scrollToTop": "Scroll to top"
   },
   "home": {
     "hey": "Hey!",
     "name": "I'm Firas",
-    "title": "Software Engineer",
-    "description": "I am a talented developer with a strong passion for JavaScript frameworks. I am always eager to learn, continually seeking opportunities for improvement, and ready to embrace new challenges.",
+    "title": "Mid-Senior Software Engineer",
+    "description": "I am a mid-senior software engineer with a strong passion for JavaScript frameworks. I am always eager to learn, continually seeking opportunities for improvement, and ready to embrace new challenges.",
     "findMe": "Find me",
     "emailMe": "Email Me",
     "resume": "Resume",
@@ -45,6 +53,23 @@
     "responsibilities": "Responsibilities",
     "technologies": "Technologies"
   },
+  "projects": {
+    "title": "Projects",
+    "intro": "A few public builds that show how I containerize apps, manage work, and visualize data.",
+    "viewRepo": "View repository",
+    "dockerMern": {
+      "title": "Docker MERN infrastructure",
+      "description": "A React frontend and Node.js/Express backend containerized so both services run and communicate in a single Docker environment."
+    },
+    "tickets": {
+      "title": "Ticket management system",
+      "description": "A team task board with To Do, In Progress, Code Review, and Done columns for tracking work from start to finish."
+    },
+    "weather": {
+      "title": "Weather station app",
+      "description": "An app that presents temperature and precipitation statistics in a clear, readable dashboard."
+    }
+  },
   "contact": {
     "title": "I'd love to hear from you!",
     "name": "Name",
@@ -59,7 +84,11 @@
     "sendAnother": "Send another message",
     "error": "Something went wrong. Please try again or email me directly."
   },
+  "cv": {
+    "tools": "Tools & Technologies",
+    "error": "Unable to generate PDF. Please try again."
+  },
   "footer": {
-    "copyright": "Copyright © {{year}} Firas GACHA - All right reserved"
+    "copyright": "Copyright © {{year}} Firas GACHA - All rights reserved"
   }
 }

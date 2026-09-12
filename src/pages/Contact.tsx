@@ -1,138 +1,149 @@
-import { useTranslation } from "react-i18next";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Page } from "../components/Page";
+import { usePageTitle } from "../hooks/usePageTitle";
+
+const FORMSPREE_FORM_ID = import.meta.env.VITE_FORMSPREE_FORM_ID ?? "xaqdraqg";
 
 export function Contact() {
-    const { t } = useTranslation();
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        message: ""
-    });
-    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const { t } = useTranslation();
+  usePageTitle("nav.contact");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
 
-    // Replace with your Formspree form ID after creating an account at https://formspree.io
-    const FORMSPREE_FORM_ID = import.meta.env.VITE_FORMSPREE_FORM_ID || "xaqdraqg";
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setStatus("submitting");
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setStatus("submitting");
+    try {
+      const response = await fetch(
+        `https://formspree.io/f/${FORMSPREE_FORM_ID}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(formData),
+        },
+      );
 
-        try {
-            const response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify({
-                    name: formData.name,
-                    email: formData.email,
-                    message: formData.message
-                })
-            });
+      setStatus(response.ok ? "success" : "error");
+      if (response.ok) {
+        setFormData({ name: "", email: "", message: "" });
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
 
-            if (response.ok) {
-                setStatus("success");
-                setFormData({ name: "", email: "", message: "" });
-            } else {
-                setStatus("error");
-            }
-        } catch (error) {
-            setStatus("error");
-        }
-    };
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
+  };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData(prev => ({
-            ...prev,
-            [e.target.name]: e.target.value
-        }));
-    };
-    
-    return (
-        <div className="w-full flex items-center justify-center my-12">
-            <div className="top-40 py-12 lg:px-28 px-8">
-                <p className="md:text-3xl text-xl font-bold leading-7 text-center">{t('contact.title')}</p>
-                
-                {status === "success" ? (
-                    <div className="mt-8 p-4 bg-success/20 text-success rounded-lg text-center">
-                        <p className="font-semibold">{t('contact.success') || "Thank you for your message! I'll get back to you soon."}</p>
-                        <button 
-                            onClick={() => setStatus("idle")}
-                            className="mt-4 btn btn-sm btn-outline"
-                        >
-                            {t('contact.sendAnother')}
-                        </button>
-                    </div>
-                ) : (
-                    <form onSubmit={handleSubmit}>
-                        <div className="md:flex items-center mt-12">
-                            <div className="md:w-72 flex flex-col">
-                                <label className="text-base font-semibold leading-none">{t('contact.name')}</label>
-                                <input 
-                                    tabIndex={0} 
-                                    aria-label="Please input name" 
-                                    type="text" 
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    required
-                                    pattern="[a-zA-Z\s]+"
-                                    className="text-base leading-none p-3 focus:oultine-none focus:border-primary mt-4 bg-base-200 border rounded border-base-300 placeholder:text-base-content/40" 
-                                    placeholder={t('contact.namePlaceholder')} 
-                                />
-                            </div>
-                            <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
-                                <label className="text-base font-semibold leading-none">{t('contact.email')}</label>
-                                <input 
-                                    tabIndex={0} 
-                                    aria-label="Please input email address" 
-                                    type="email" 
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    required
-                                    pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
-                                    className="text-base leading-none p-3 focus:oultine-none focus:border-primary mt-4 bg-base-200 border rounded border-base-300 placeholder:text-base-content/40" 
-                                    placeholder={t('contact.emailPlaceholder')} 
-                                />
-                            </div>
-                        </div>
-                        <div>
-                            <div className="w-full flex flex-col mt-8">
-                                <label className="text-base font-semibold leading-none">{t('contact.message')}</label>
-                                <textarea 
-                                    tabIndex={0} 
-                                    aria-label="leave a message" 
-                                    role="textbox" 
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    required
-                                    className="h-36 text-base leading-none p-3 focus:oultine-none focus:border-primary mt-4 bg-base-200 border rounded border-base-300 placeholder:text-base-content/40 resize-none" 
-                                    placeholder={t('contact.messagePlaceholder')} 
-                                />
-                            </div>
-                        </div>
-                        
-                        {status === "error" && (
-                            <div className="mt-4 p-3 bg-error/20 text-error rounded-lg text-center">
-                                <p>{t('contact.error') || "Something went wrong. Please try again or email me directly."}</p>
-                            </div>
-                        )}
-                        
-                        <div className="flex items-center justify-center w-full">
-                            <button 
-                                type="submit" 
-                                disabled={status === "submitting"}
-                                className="mt-9 text-base font-semibold leading-none text-white py-4 px-10 bg-primary rounded hover:bg-primary-focus focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
-                            >
-                                {status === "submitting" ? t('contact.sending') : t('contact.submit')}
-                            </button>
-                        </div>
-                    </form>
-                )}
+  return (
+    <Page className="items-center">
+      <div className="px-8 py-12 lg:px-28">
+        <h1 className="text-center text-xl font-bold leading-7 md:text-3xl">
+          {t("contact.title")}
+        </h1>
+
+        {status === "success" ? (
+          <div className="mt-8 rounded-lg bg-success/20 p-4 text-center text-success">
+            <p className="font-semibold">{t("contact.success")}</p>
+            <button
+              type="button"
+              onClick={() => setStatus("idle")}
+              className="btn btn-outline btn-sm mt-4"
+            >
+              {t("contact.sendAnother")}
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="mt-12">
+            <div className="md:flex md:items-start md:gap-6">
+              <fieldset className="fieldset md:w-72">
+                <label className="label" htmlFor="contact-name">
+                  {t("contact.name")}
+                </label>
+                <input
+                  id="contact-name"
+                  aria-label={t("contact.name")}
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  autoComplete="name"
+                  className="input w-full"
+                  placeholder={t("contact.namePlaceholder")}
+                />
+              </fieldset>
+              <fieldset className="fieldset mt-4 md:mt-0 md:w-72">
+                <label className="label" htmlFor="contact-email">
+                  {t("contact.email")}
+                </label>
+                <input
+                  id="contact-email"
+                  aria-label={t("contact.email")}
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  autoComplete="email"
+                  className="input w-full"
+                  placeholder={t("contact.emailPlaceholder")}
+                />
+              </fieldset>
             </div>
-        </div>
-    );
+            <fieldset className="fieldset mt-8">
+              <label className="label" htmlFor="contact-message">
+                {t("contact.message")}
+              </label>
+              <textarea
+                id="contact-message"
+                aria-label={t("contact.message")}
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="textarea h-36 w-full resize-none"
+                placeholder={t("contact.messagePlaceholder")}
+              />
+            </fieldset>
+
+            {status === "error" && (
+              <div className="mt-4 rounded-lg bg-error/20 p-3 text-center text-error">
+                <p>{t("contact.error")}</p>
+              </div>
+            )}
+
+            <div className="flex w-full items-center justify-center">
+              <button
+                type="submit"
+                disabled={status === "submitting"}
+                className="btn btn-primary btn-lg mt-9"
+              >
+                {status === "submitting"
+                  ? t("contact.sending")
+                  : t("contact.submit")}
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
+    </Page>
+  );
 }

@@ -1,16 +1,24 @@
 {
+  "meta": {
+    "siteTitle": "Firas Gacha - Ingénieur Logiciel Mid-Senior"
+  },
   "nav": {
     "home": "Accueil",
     "work": "Expériences",
+    "projects": "Projets",
     "contact": "Contact",
     "darkMode": "Mode sombre",
-    "lightMode": "Mode clair"
+    "lightMode": "Mode clair",
+    "menu": "Ouvrir le menu",
+    "toggleLanguage": "Changer de langue",
+    "skipToContent": "Aller au contenu",
+    "scrollToTop": "Retour en haut"
   },
   "home": {
-    "hey": "Salut!",
+    "hey": "Salut !",
     "name": "Je suis Firas",
-    "title": "Ingénieur Logiciel",
-    "description": "Je suis un développeur talenté avec une forte passion pour les frameworks JavaScript. Je suis toujours impatient d'apprendre, cherchant constamment des opportunités d'amélioration et prêt à relever de nouveaux défis.",
+    "title": "Ingénieur Logiciel Mid-Senior",
+    "description": "Je suis un ingénieur logiciel mid-senior, passionné par les frameworks JavaScript. J'ai toujours envie d'apprendre, je cherche constamment à m'améliorer et je suis prêt à relever de nouveaux défis.",
     "findMe": "Suivez-moi",
     "emailMe": "Envoyer un email",
     "resume": "CV",
@@ -22,10 +30,10 @@
   },
   "hireMe": {
     "title": "Pourquoi me recruter ?",
-    "workaholic": "Workaholic",
-    "workaholicDesc": "Les délais ne me course pas, je reste en avance dessus.",
+    "workaholic": "Assidu",
+    "workaholicDesc": "Les délais ne me coursent pas : je reste en avance.",
     "communicative": "Communicatif",
-    "communicativeDesc": "Je'équilibre entre parler et écouter pour une communication claire.",
+    "communicativeDesc": "J'équilibre parole et écoute pour une communication claire.",
     "collaborative": "Collaboratif",
     "collaborativeDesc": "La collaboration est la clé du succès, le travail d'équipe transforme la vision en réalité.",
     "selfMotivated": "Autonome",
@@ -45,6 +53,23 @@
     "responsibilities": "Responsabilités",
     "technologies": "Technologies"
   },
+  "projects": {
+    "title": "Projets",
+    "intro": "Quelques réalisations publiques : containerisation, suivi de tickets et visualisation de données.",
+    "viewRepo": "Voir le dépôt",
+    "dockerMern": {
+      "title": "Infrastructure Docker pour une application MERN",
+      "description": "Un frontend React et un backend Node.js/Express containerisés pour communiquer dans un même environnement Docker."
+    },
+    "tickets": {
+      "title": "Système de gestion de tickets",
+      "description": "Un tableau de suivi d'équipe avec les colonnes To Do, In Progress, Code Review et Done."
+    },
+    "weather": {
+      "title": "Application météo",
+      "description": "Une application qui présente les statistiques de températures et de précipitations."
+    }
+  },
   "contact": {
     "title": "J'adorerais avoir de vos nouvelles !",
     "name": "Nom",
@@ -58,6 +83,10 @@
     "success": "Merci pour votre message ! Je vous répondrai bientôt.",
     "sendAnother": "Envoyer un autre message",
     "error": "Une erreur s'est produite. Veuillez réessayer ou m'envoyer un email directement."
+  },
+  "cv": {
+    "tools": "Outils et technologies",
+    "error": "Impossible de générer le PDF. Veuillez réessayer."
   },
   "footer": {
     "copyright": "Copyright © {{year}} Firas GACHA - Tous droits réservés"

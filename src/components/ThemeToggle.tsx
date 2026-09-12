@@ -1,52 +1,48 @@
-import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+
+function readTheme(): "light" | "dark" {
+  if (typeof document === "undefined") return "light";
+  return document.documentElement.getAttribute("data-theme") === "dark"
+    ? "dark"
+    : "light";
+}
+
+function applyTheme(theme: "light" | "dark") {
+  localStorage.setItem("theme", theme);
+  document.documentElement.setAttribute("data-theme", theme);
+  document.documentElement.classList.toggle("dark", theme === "dark");
+  window.dispatchEvent(new Event("themechange"));
+}
 
 export function ThemeToggle() {
   const { t } = useTranslation();
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<"light" | "dark">(readTheme);
 
   useEffect(() => {
-    // Check localStorage or system preference on mount
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setTheme(savedTheme as 'light' | 'dark');
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      if (savedTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-      }
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-      document.documentElement.setAttribute('data-theme', 'dark');
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
+    const sync = () => setTheme(readTheme());
+    window.addEventListener("themechange", sync);
+    return () => window.removeEventListener("themechange", sync);
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-    
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    applyTheme(theme === "light" ? "dark" : "light");
   };
+
+  const label = theme === "light" ? t("nav.darkMode") : t("nav.lightMode");
 
   return (
     <button
+      type="button"
       onClick={toggleTheme}
       className="btn btn-ghost btn-sm"
-      aria-label={theme === 'light' ? t('nav.darkMode') : t('nav.lightMode')}
-      title={theme === 'light' ? t('nav.darkMode') : t('nav.lightMode')}
+      aria-label={label}
+      title={label}
     >
-      {theme === 'light' ? (
-        <i className="ri-moon-line text-xl"></i>
+      {theme === "light" ? (
+        <i className="ri-moon-line text-xl" />
       ) : (
-        <i className="ri-sun-line text-xl"></i>
+        <i className="ri-sun-line text-xl" />
       )}
     </button>
   );

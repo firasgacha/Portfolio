@@ -1,39 +1,33 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export function ScrollToTop() {
-    const [isVisible, setIsVisible] = useState(false);
+  const { t } = useTranslation();
+  const { pathname } = useLocation();
+  const [isVisible, setIsVisible] = useState(false);
 
-    useEffect(() => {
-        const toggleVisibility = () => {
-            if (window.scrollY > 300) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
-            }
-        };
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [pathname]);
 
-        window.addEventListener("scroll", toggleVisibility);
-        return () => window.removeEventListener("scroll", toggleVisibility);
-    }, []);
-
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
+  useEffect(() => {
+    const toggleVisibility = () => {
+      setIsVisible(window.scrollY > 300);
     };
 
-    return (
-        <>
-            {isVisible && (
-                <button
-                    onClick={scrollToTop}
-                    className="fixed bottom-8 right-8 btn btn-primary btn-circle btn-lg shadow-lg z-50"
-                    aria-label="Scroll to top"
-                >
-                    <i className="ri-arrow-up-line text-2xl"></i>
-                </button>
-            )}
-        </>
-    );
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  return isVisible ? (
+    <button
+      type="button"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="btn btn-primary btn-circle btn-lg fixed right-8 bottom-8 z-50"
+      aria-label={t("nav.scrollToTop")}
+    >
+      <i className="ri-arrow-up-line text-2xl" />
+    </button>
+  ) : null;
 }

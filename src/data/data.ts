@@ -66,7 +66,7 @@ export const technologies = [
     image: mongoImg,
   },
   {
-    name: "Ngnix",
+    name: "Nginx",
     image: ngnixImg,
   },
   {
@@ -131,7 +131,7 @@ export const technologies = [
   },
 ];
 
-export const hireRessons = [
+export const hireReasons = [
   {
     title: "Workaholic",
     image: workaholicImg,
@@ -157,28 +157,27 @@ export const hireRessons = [
 
 export const projectsList = [
   {
-    title: "Création d'une Infrastructure Docker pour une Application MERN",
+    id: "docker-mern",
+    titleKey: "projects.dockerMern.title",
+    descriptionKey: "projects.dockerMern.description",
     image:
-      "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
-    link: github + "Dockerizing-Mern-Application",
-    description:
-      "Dans ce projet, nous développons une application avec un frontend construit avec React et un backend utilisant Node.js et Express. L'objectif principal est de containeriser ces deux applications et de les déployer dans un environnement Docker unique, permettant ainsi aux différents conteneurs de communiquer efficacement entre eux",
+      "https://opengraph.githubassets.com/1/firasgacha/Dockerizing-Mern-Application",
+    link: `${github}Dockerizing-Mern-Application`,
   },
   {
-    title: "Système de Gestion de Tickets",
+    id: "tickets",
+    titleKey: "projects.tickets.title",
+    descriptionKey: "projects.tickets.description",
     image:
-      "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
+      "https://opengraph.githubassets.com/1/firasgacha/Tickets-Management-System",
     link: "https://github.com/firasgacha/Tickets-Management-System",
-    description:
-      "Ce projet est une application de gestion de tickets permettant de suivre l'état d'avancement des tâches au sein d'une équipe. Les tâches sont organisées dans quatre colonnes : To Do, In Progress, Code Review, et Done.",
   },
   {
-    title: "Application de Météo",
-    image:
-      "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
+    id: "weather",
+    titleKey: "projects.weather.title",
+    descriptionKey: "projects.weather.description",
+    image: "https://opengraph.githubassets.com/1/firasgacha/Weather-station-app",
     link: "https://github.com/firasgacha/Weather-station-app",
-    description:
-      "Cette application a pour objectif de présenter les statistiques relatives aux températures et aux précipitations.",
   },
 ];
 
