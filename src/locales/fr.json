@@ -55,19 +55,57 @@
   },
   "projects": {
     "title": "Projets",
-    "intro": "Quelques réalisations publiques : containerisation, suivi de tickets et visualisation de données.",
-    "viewRepo": "Voir le dépôt",
-    "dockerMern": {
-      "title": "Infrastructure Docker pour une application MERN",
-      "description": "Un frontend React et un backend Node.js/Express containerisés pour communiquer dans un même environnement Docker."
+    "intro": "Une sélection de produits : communication temps réel, opérations d'entreprise, éducation et applications mobiles.",
+    "features": "Fonctionnalités clés",
+    "stack": "Stack technique",
+    "nitrofx": {
+      "name": "Meet Lab",
+      "subtitle": "Plateforme de visioconférence sur invitation",
+      "description": "Une plateforme de communication vidéo full-stack, conçue pour des réunions exclusives gérées par l'hôte. Architecturée en monorepo, elle n'autorise l'accès aux salles qu'aux hôtes authentifiés et aux invités explicitement conviés via des JWT signés. Les hôtes disposent d'une modération fine, et des signaux de trading (buy/sell) peuvent être poussés en direct dans les sessions.",
+      "features": [
+        "Contrôle d'accès strict : invitation explicite, jetons d'invitation hashés, limitation de débit et verrouillage après 5 tentatives.",
+        "Modération hôte : mute/exclusion, permissions, mains levées, bannières et alertes de trading via les data channels WebRTC.",
+        "Annuaire des participants, groupes personnalisés, permissions et invitations groupées avec identifiants envoyés par email.",
+        "SFU LiveKit pour l'audio, la vidéo et le partage d'écran WebRTC à faible latence, avec zoom côté spectateur.",
+        "Onboarding par invitation : jetons email expirants, réinitialisation de mot de passe et interception SMTP locale pour les tests."
+      ]
     },
-    "tickets": {
-      "title": "Système de gestion de tickets",
-      "description": "Un tableau de suivi d'équipe avec les colonnes To Do, In Progress, Code Review et Done."
+    "blocksiAttendance": {
+      "name": "Job Time Attendance",
+      "subtitle": "Suivi du temps Slack et web",
+      "description": "Un système d'entreprise de suivi du temps et des absences, associant un bot Slack à un tableau de bord React. Les collaborateurs gèrent pointage, pauses déjeuner et demandes d'absence depuis Slack (commandes slash, messages privés ou App Home), avec synchronisation en temps réel vers le web.",
+      "features": [
+        "Pointage, pause déjeuner et statuts via Slack Socket Mode ou le tableau de bord web.",
+        "Synchronisation bidirectionnelle du profil Slack (users.profile:write) : présent, déjeuner, télétravail, congés, maladie.",
+        "Circuit de validation des congés, historique des demandes et calendrier d'équipe.",
+        "Rôles Employé, Manager et Admin, supervision d'équipe et événements de bureau.",
+        "Exports paie et comptabilité en CSV, JSON, Excel et PDF, filtrables par bureau.",
+        "Sandbox locale : auth de développement, seed de base et exécution complète via Docker."
+      ]
     },
-    "weather": {
-      "title": "Application météo",
-      "description": "Une application qui présente les statistiques de températures et de précipitations."
+    "civiqueprep": {
+      "name": "CiviquePrep",
+      "subtitle": "PWA installable et offline-first pour l'examen civique français",
+      "description": "CiviquePrep est une Progressive Web App (PWA) installable et offline-first, conçue pour aider les candidats à préparer efficacement l'examen civique français. La plateforme associe des outils d'étude flexibles aux standards web modernes pour une expérience mobile-first sur ordinateur, tablette et mobile.",
+      "features": [
+        "Algorithme de répétition espacée SM-2 et analyses dynamiques des points faibles pour des révisions personnalisées selon la progression de chaque utilisateur.",
+        "Simulations d'examen chronométrées à plusieurs niveaux de difficulté, entraînement à son rythme avec feedback immédiat, flashcards interactives, et signets de questions avec prise de notes.",
+        "Support multilingue complet sur 7 langues (français, anglais, espagnol, italien, ukrainien, chinois et arabe), avec bascule automatique de la mise en page RTL.",
+        "Suivi des séries quotidiennes, compteurs XP, déblocage de badges et progression de niveau, avec un Service Worker sur mesure pour un usage hors ligne complet."
+      ]
+    },
+    "histocar": {
+      "name": "HistoCar",
+      "subtitle": "Carnet d'entretien automobile multiplateforme",
+      "description": "Une application mobile et desktop offline-first pour le suivi multi-véhicules : entretien, carburant, contrôles techniques et pièces. Développée avec Flutter, toute la donnée tient dans un document JSON atomique (histocar_database.json), pour la confidentialité et des sauvegardes simples sans serveur cloud obligatoire.",
+      "features": [
+        "Journaux carburant, contrôles, pièces et interventions par véhicule, avec VIN, plaque et kilométrage.",
+        "Consommation, coût au kilomètre, prix moyen du carburant et coût total de possession, en isolant les dépenses de l'ancien propriétaire.",
+        "Écritures atomiques, snapshots avant import, récupération en cas de fichier corrompu et validation de schéma versionnée.",
+        "Restauration locale, sauvegardes unidirectionnelles Google Drive et Dropbox, exports JSON, CSV et PDF.",
+        "Sauvegardes Android SAF, sélection de chemin desktop, et rappels de maintenance natifs.",
+        "Multi-devises, unités km/mi, thèmes clair/sombre, et localisations anglais, français et arabe."
+      ]
     }
   },
   "contact": {

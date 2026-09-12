@@ -21,6 +21,12 @@ import cssImg from "../assets/technologies/css.png";
 import githubImg from "../assets/technologies/github.png";
 import cicdImg from "../assets/technologies/cicd.png";
 import sentryImg from "../assets/technologies/sentry.png";
+import kargoImg from "../assets/technologies/kargo.png";
+import argoImg from "../assets/technologies/argo.png";
+import lensImg from "../assets/technologies/lens.png";
+import jenkinsImg from "../assets/technologies/jenkins.png";
+import gitlabImg from "../assets/technologies/gitlab.png";
+import elasticsearchImg from "../assets/technologies/elasticsearch.png";
 
 // Hire Me images
 import workaholicImg from "../assets/hireMe/workaholic.png";
@@ -129,6 +135,30 @@ export const technologies = [
     name: "Sentry",
     image: sentryImg,
   },
+  {
+    name: "Kargo",
+    image: kargoImg,
+  },
+  {
+    name: "Argo",
+    image: argoImg,
+  },
+  {
+    name: "Lens",
+    image: lensImg,
+  },
+  {
+    name: "Jenkins",
+    image: jenkinsImg,
+  },
+  {
+    name: "GitLab",
+    image: gitlabImg,
+  },
+  {
+    name: "Elasticsearch",
+    image: elasticsearchImg,
+  },
 ];
 
 export const hireReasons = [
@@ -157,29 +187,62 @@ export const hireReasons = [
 
 export const projectsList = [
   {
-    id: "docker-mern",
-    titleKey: "projects.dockerMern.title",
-    descriptionKey: "projects.dockerMern.description",
-    image:
-      "https://opengraph.githubassets.com/1/firasgacha/Dockerizing-Mern-Application",
-    link: `${github}Dockerizing-Mern-Application`,
+    id: "nitrofx",
+    stack: [
+      "React 19",
+      "React Router 7",
+      "Vite 8",
+      "@livekit/components-react",
+      "Node.js 26",
+      "Express 5",
+      "TypeScript",
+      "MongoDB",
+      "LiveKit SFU",
+      "Docker Compose",
+      "JWT",
+      "Zod",
+    ],
   },
   {
-    id: "tickets",
-    titleKey: "projects.tickets.title",
-    descriptionKey: "projects.tickets.description",
-    image:
-      "https://opengraph.githubassets.com/1/firasgacha/Tickets-Management-System",
-    link: "https://github.com/firasgacha/Tickets-Management-System",
+    id: "blocksiAttendance",
+    stack: [
+      "React",
+      "Vite",
+      "Node.js 22",
+      "Express",
+      "Slack Bolt",
+      "MongoDB",
+      "Slack OAuth 2.0",
+      "WebSockets",
+      "Docker",
+    ],
   },
   {
-    id: "weather",
-    titleKey: "projects.weather.title",
-    descriptionKey: "projects.weather.description",
-    image: "https://opengraph.githubassets.com/1/firasgacha/Weather-station-app",
-    link: "https://github.com/firasgacha/Weather-station-app",
+    id: "civiqueprep",
+    stack: [
+      "React 19",
+      "TypeScript",
+      "Vite 7",
+      "i18next",
+      "CSS Custom Properties",
+      "EmailJS",
+      "Web App Manifest",
+      "Service Worker",
+    ],
   },
-];
+  {
+    id: "histocar",
+    stack: [
+      "Flutter",
+      "Dart",
+      "JSON storage",
+      "Android SAF",
+      "Local Notifications",
+      "Google Drive",
+      "Dropbox",
+    ],
+  },
+] as const;
 
 export const experiences = [
   {

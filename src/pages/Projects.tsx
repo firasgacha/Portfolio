@@ -12,39 +12,59 @@ export function Projects() {
       <h1 className="mb-8 text-5xl font-bold text-primary">
         {t("projects.title")}
       </h1>
-      <p className="mx-auto mb-12 max-w-2xl text-base-content/70">
+      <p className="mx-auto mb-12 max-w-3xl text-base-content/70">
         {t("projects.intro")}
       </p>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {projectsList.map((project) => (
-          <a
-            key={project.id}
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="card bg-base-200 text-start transition hover:-translate-y-1"
-          >
-            <figure className="aspect-video overflow-hidden bg-base-300">
-              <img
-                src={project.image}
-                alt=""
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title text-primary">
-                {t(project.titleKey)}
-              </h2>
-              <p>{t(project.descriptionKey)}</p>
-              <div className="card-actions justify-end">
-                <span className="btn btn-primary btn-sm">
-                  {t("projects.viewRepo")}
-                </span>
+      <div className="grid gap-8 text-start xl:grid-cols-2">
+        {projectsList.map((project) => {
+          const features = t(`projects.${project.id}.features`, {
+            returnObjects: true,
+          }) as string[];
+
+          return (
+            <article
+              key={project.id}
+              className="card border border-base-300 bg-base-200"
+            >
+              <div className="card-body gap-4">
+                <div>
+                  <h2 className="card-title text-2xl text-primary">
+                    {t(`projects.${project.id}.name`)}
+                  </h2>
+                  <p className="mt-1 font-semibold">
+                    {t(`projects.${project.id}.subtitle`)}
+                  </p>
+                </div>
+                <p>{t(`projects.${project.id}.description`)}</p>
+                <div>
+                  <h3 className="mb-2 font-semibold text-primary">
+                    {t("projects.features")}
+                  </h3>
+                  <ul className="list-disc space-y-2 pl-5 text-sm">
+                    {features.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="mb-2 font-semibold text-primary">
+                    {t("projects.stack")}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {project.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="badge badge-outline badge-sm text-primary"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          </a>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </Page>
   );

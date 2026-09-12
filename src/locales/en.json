@@ -55,19 +55,57 @@
   },
   "projects": {
     "title": "Projects",
-    "intro": "A few public builds that show how I containerize apps, manage work, and visualize data.",
-    "viewRepo": "View repository",
-    "dockerMern": {
-      "title": "Docker MERN infrastructure",
-      "description": "A React frontend and Node.js/Express backend containerized so both services run and communicate in a single Docker environment."
+    "intro": "Selected product work spanning real-time communication, workplace operations, education, and mobile apps.",
+    "features": "Key features",
+    "stack": "Tech stack",
+    "nitrofx": {
+      "name": "Meet Lab",
+      "subtitle": "Invite-only video conferencing platform",
+      "description": "A secure, full-stack video communication platform designed for exclusive, host-managed meetings. Built as a monorepo, it grants room access only to authenticated hosts and explicitly invited guests via signed JWT tokens. Hosts get granular in-call moderation, while live financial trading signals (buy/sell) can be pushed into active sessions.",
+      "features": [
+        "Strict access control with explicit invitations, hashed invite tokens, rate limiting, and guest lockout after 5 failed attempts.",
+        "Host moderation for mute/kick, permission overrides, raised hands, broadcast banners, and live trade alerts over WebRTC data channels.",
+        "Participant directory with custom groups, permission assignment, and bulk invites with automated email credentials.",
+        "LiveKit SFU for low-latency WebRTC audio, video, and screen sharing, including viewer-side zoom.",
+        "Invitation onboarding with expiring email tokens, password reset links, and local SMTP interception for testing."
+      ]
     },
-    "tickets": {
-      "title": "Ticket management system",
-      "description": "A team task board with To Do, In Progress, Code Review, and Done columns for tracking work from start to finish."
+    "blocksiAttendance": {
+      "name": "Job Time Attendance",
+      "subtitle": "Automated Slack and web time tracking",
+      "description": "An enterprise time-tracking and leave management system that pairs a Slack bot with an interactive React dashboard. Employees clock time, lunch breaks, and time-off from Slack (slash commands, DMs, or App Home) while activity stays in sync with the web app.",
+      "features": [
+        "Clock-in/out, lunch toggles, and status updates from Slack Socket Mode or the web dashboard.",
+        "Two-way Slack profile sync (users.profile:write) for live states such as in, lunch, remote, vacation, and sick.",
+        "Leave workflows for vacation, sick, and remote days with approval tracking, history, and a team calendar.",
+        "Role-based access for Employee, Manager, and Admin, plus team oversight and office event scheduling.",
+        "Payroll and accounting exports in CSV, JSON, Excel, and PDF with office-level filtering.",
+        "Local sandbox with mock auth, database seeding, and full Docker/shell execution."
+      ]
     },
-    "weather": {
-      "title": "Weather station app",
-      "description": "An app that presents temperature and precipitation statistics in a clear, readable dashboard."
+    "civiqueprep": {
+      "name": "CiviquePrep",
+      "subtitle": "Installable offline-first PWA for the French civic exam",
+      "description": "CiviquePrep is an installable, offline-first Progressive Web Application (PWA) built to help candidates prepare effectively for the French civic exam (examen civique français). The platform combines flexible study tools with modern web standards to deliver a mobile-first experience across desktop, tablet, and mobile devices.",
+      "features": [
+        "SM-2 spaced repetition and dynamic weak-area analytics for personalized question reviews based on individual progress.",
+        "Timed exam simulations across multiple difficulty levels, self-paced training with instant feedback, interactive flip-card study, and custom question bookmarking with note-taking.",
+        "Full multi-language support across 7 languages (French, English, Spanish, Italian, Ukrainian, Chinese, and Arabic), with automatic Right-to-Left (RTL) layout switching.",
+        "Custom tracking for daily streaks, XP counters, badge unlocks, and level progression, plus a custom Service Worker for full offline usability."
+      ]
+    },
+    "histocar": {
+      "name": "HistoCar",
+      "subtitle": "Cross-platform automotive logbook",
+      "description": "An offline-first mobile and desktop app for multi-vehicle maintenance, fuel logs, inspections, and part replacements. Built with Flutter, all state lives in a single atomic JSON document (histocar_database.json), so data stays private and backups stay simple without a required cloud server.",
+      "features": [
+        "Per-vehicle fuel, inspection, parts, and service logs, including VIN, plate, and mileage.",
+        "Fuel efficiency, cost-per-kilometer, average fuel price, and total cost of ownership, with previous-owner expenses isolated.",
+        "Atomic file writes, pre-import snapshots, corruption recovery, and version-gated schema validation.",
+        "Local snapshot restore, one-way Google Drive and Dropbox backups, and JSON, CSV, and PDF exports.",
+        "Android Storage Access Framework backups, desktop path selection, and native maintenance reminders.",
+        "Multi-currency support, km/mi units, dark/light themes, and English, French, and Arabic localization."
+      ]
     }
   },
   "contact": {
