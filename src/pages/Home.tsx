@@ -28,6 +28,15 @@ export function Home() {
             <p className="mb-6 text-5xl font-bold">{t("home.hey")}</p>
             <h1 className="text-5xl font-bold">{t("home.name")}</h1>
             <p className="text-5xl font-bold text-primary">{t("home.title")}</p>
+            <p className="mt-4 text-xl md:text-2xl">
+              {t("home.currentRoleBefore")}{" "}
+              <NavLink
+                to="/work"
+                className="font-semibold text-primary underline-offset-4 hover:underline"
+              >
+                BLOCKSI Inc
+              </NavLink>.
+            </p>
             <p className="py-6">{t("home.description")}</p>
           </div>
 
