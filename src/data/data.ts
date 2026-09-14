@@ -276,7 +276,7 @@ export const experiences = [
         "Expertise in interdisciplinary collaboration, coordinating efforts between technical teams to deliver robust, scalable solutions aligned with business objectives.",
       ],
     },
-    technologies: ["React", "TypeScript", "Vite", "Kubernetes", "Redis", "Jenkins", "LLM", "Chrome Extension", "NVIDIA DGX-SPARK"],
+    technologies: ["React", "TypeScript", "Vite", "Kubernetes", "Lens", "ArgoCD", "Prometheus", "Grafana", "GitLab", "Elasticsearch", "Redis", "Jenkins", "LLM", "Chrome Extension", "NVIDIA DGX-SPARK"],
   },
   {
     id: "happiso",
