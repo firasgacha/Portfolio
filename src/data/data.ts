@@ -27,6 +27,8 @@ import lensImg from "../assets/technologies/lens.png";
 import jenkinsImg from "../assets/technologies/jenkins.png";
 import gitlabImg from "../assets/technologies/gitlab.png";
 import elasticsearchImg from "../assets/technologies/elasticsearch.png";
+import prometheusImg from "../assets/technologies/prometheus.png";
+import grafanaImg from "../assets/technologies/grafana.png";
 
 // Hire Me images
 import workaholicImg from "../assets/hireMe/workaholic.png";
@@ -158,6 +160,14 @@ export const technologies = [
   {
     name: "Elasticsearch",
     image: elasticsearchImg,
+  },
+  {
+    name: "Prometheus",
+    image: prometheusImg,
+  },
+  {
+    name: "Grafana",
+    image: grafanaImg,
   },
 ];
 
