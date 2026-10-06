@@ -47,6 +47,7 @@ import coroplasteImg from "../assets/work/coroplaste.png";
 import tunisairImg from "../assets/work/tunisair.png";
 
 export const github = "https://github.com/firasgacha/";
+export const linkedin = "https://www.linkedin.com/in/firasgacha/";
 
 export const technologies = [
   {

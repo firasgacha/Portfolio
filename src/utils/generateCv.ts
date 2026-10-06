@@ -1,5 +1,4 @@
 import type { TFunction } from "i18next";
-import profileImg from "../assets/profile.png";
 import { experiences, github, technologies } from "../data/data";
 import { isFrench, pickLocale } from "../lib/locale";
 
@@ -25,28 +24,7 @@ export async function generateCv(t: TFunction, language: string) {
     }
   };
 
-  let headerTextX = margin;
-  let headerHeight = 0;
-
-  try {
-    const imgResponse = await fetch(profileImg);
-    const imgBlob = await imgResponse.blob();
-    const imgBase64 = await new Promise<string>((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => resolve(reader.result as string);
-      reader.onerror = reject;
-      reader.readAsDataURL(imgBlob);
-    });
-
-    const imgSize = 25;
-    doc.addImage(imgBase64, "PNG", margin, y, imgSize, 35);
-    headerTextX = margin + imgSize + 8;
-    headerHeight = imgSize;
-  } catch (imgError) {
-    console.warn("[CV] Could not load profile image:", imgError);
-    headerHeight = 20;
-  }
-
+  const headerTextX = margin;
   const textStartY = y + 8;
   doc.setFontSize(22);
   doc.setTextColor(...purple);
@@ -66,8 +44,11 @@ export async function generateCv(t: TFunction, language: string) {
   doc.text(`GitHub: ${github}`, pageWidth - margin, textStartY + 5, {
     align: "right",
   });
+  doc.text(`Linkedin: ${linkedin}`, pageWidth - margin, textStartY + 5, {
+    align: "right",
+  });
 
-  y += Math.max(headerHeight, 20) + 25;
+  y += 45;
 
   checkPageBreak(15);
   doc.setFontSize(14);
