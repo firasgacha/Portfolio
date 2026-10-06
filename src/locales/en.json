@@ -111,7 +111,7 @@
         "Multi-currency support, km/mi units, dark/light themes, and English, French, and Arabic localization."
       ]
     },
-    "ToolLab": {
+    "toollab": {
       "name": "Tool Lab",
       "subtitle": "Private in-browser toolkit for PDFs, images, documents, and audio",
       "description": "A free, in-browser toolkit for PDFs, images, documents, and audio. Open a tool, drop a file, and download the result, with no account, no paid plan, and no install. Most processing runs locally in the browser, so files are not uploaded to a toollab server, and tools with browser-side limits are clearly labeled as Limited.",
