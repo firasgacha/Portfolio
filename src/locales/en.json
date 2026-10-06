@@ -11,6 +11,7 @@
     "lightMode": "Light Mode",
     "menu": "Open menu",
     "toggleLanguage": "Switch language",
+    "language": "Language",
     "skipToContent": "Skip to content",
     "scrollToTop": "Scroll to top"
   },
@@ -43,6 +44,7 @@
   "work": {
     "title": "Experience",
     "fullStackDeveloper": "Full Stack Developer",
+    "midSenior": "Mid-Senior / Full Stack Developer",
     "webDeveloper": "Web Developer",
     "itTechnician": "IT Technician",
     "cdi": "CDI",

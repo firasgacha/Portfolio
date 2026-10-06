@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { isFrench } from "../lib/locale";
 import scriptIcon from "../assets/script.png";
+import { LanguageMenuItems, LanguageSelect } from "./LanguageSelect";
 import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
@@ -32,13 +32,7 @@ function NavItem({
 }
 
 export function NavBar() {
-  const { t, i18n } = useTranslation();
-
-  const toggleLanguage = () => {
-    i18n.changeLanguage(isFrench(i18n.language) ? "en" : "fr");
-  };
-
-  const languageLabel = isFrench(i18n.language) ? "EN" : "FR";
+  const { t } = useTranslation();
 
   return (
     <div className="navbar mb-12 bg-base-100">
@@ -75,11 +69,7 @@ export function NavBar() {
             <li>
               <ThemeToggle />
             </li>
-            <li>
-              <button type="button" onClick={toggleLanguage}>
-                {languageLabel}
-              </button>
-            </li>
+            <LanguageMenuItems />
           </ul>
         </div>
         <NavLink to="/" className="avatar" aria-label={t("nav.home")}>
@@ -95,14 +85,7 @@ export function NavBar() {
           ))}
         </ul>
         <ThemeToggle />
-        <button
-          type="button"
-          onClick={toggleLanguage}
-          className="btn btn-ghost btn-sm ml-2"
-          aria-label={t("nav.toggleLanguage")}
-        >
-          <span className="text-sm font-semibold">{languageLabel}</span>
-        </button>
+        <LanguageSelect />
       </div>
     </div>
   );

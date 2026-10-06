@@ -1,6 +1,6 @@
 {
   "meta": {
-    "siteTitle": "Firas Gacha - Ingénieur logiciel mid-senior"
+    "siteTitle": "Firas Gacha - Mid-Senior / Développeur Full Stack Confirmé"
   },
   "nav": {
     "home": "Accueil",
@@ -11,15 +11,16 @@
     "lightMode": "Mode clair",
     "menu": "Ouvrir le menu",
     "toggleLanguage": "Changer de langue",
+    "language": "Langue",
     "skipToContent": "Aller au contenu",
     "scrollToTop": "Retour en haut"
   },
   "home": {
     "hey": "Salut !",
     "name": "Je suis Firas",
-    "title": "Ingénieur logiciel mid-senior",
+    "title": "Mid-Senior / Développeur Full Stack Confirmé",
     "currentRoleBefore": "Actuellement chez",
-    "description": "Je suis un ingénieur logiciel mid-senior, passionné par les frameworks JavaScript. J'ai toujours envie d'apprendre, je cherche constamment à m'améliorer et je suis prêt à relever de nouveaux défis.",
+    "description": "Je suis un mid-senior / développeur full stack confirmé, passionné par les frameworks JavaScript. J'ai toujours envie d'apprendre, je cherche constamment à m'améliorer et je suis prêt à relever de nouveaux défis.",
     "findMe": "Retrouvez-moi",
     "emailMe": "Envoyer un email",
     "resume": "CV",
@@ -42,6 +43,7 @@
   },
   "work": {
     "title": "Expériences",
+    "midSenior": "Mid-Senior / Développeur Full Stack Confirmé",
     "fullStackDeveloper": "Développeur Full Stack",
     "webDeveloper": "Développeur Web",
     "itTechnician": "Technicien IT",

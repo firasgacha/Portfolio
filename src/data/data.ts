@@ -261,7 +261,7 @@ export const experiences = [
     company: "BLOCKSI Inc",
     current: true,
     image: blocksiImg,
-    role: "fullStackDeveloper",
+    role: "midSenior",
     type: "cdi",
     dates: {
       en: "11/2024 - Present",

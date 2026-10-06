@@ -1,5 +1,11 @@
 import type { TFunction } from "i18next";
-import { experiences, github, technologies, linkedin } from "../data/data";
+import {
+  experiences,
+  github,
+  linkedin,
+  projectsList,
+  technologies,
+} from "../data/data";
 import { isFrench, pickLocale } from "../lib/locale";
 
 export async function generateCv(t: TFunction, language: string) {
@@ -44,7 +50,7 @@ export async function generateCv(t: TFunction, language: string) {
   doc.text(`GitHub: ${github}`, pageWidth - margin, textStartY + 5, {
     align: "right",
   });
-  doc.text(`Linkedin: ${linkedin}`, pageWidth - margin, textStartY + 5, {
+  doc.text(`LinkedIn: ${linkedin}`, pageWidth - margin, textStartY + 10, {
     align: "right",
   });
 
@@ -112,6 +118,58 @@ export async function generateCv(t: TFunction, language: string) {
     );
     doc.text(techLines, margin, y + 2);
     y += techLines.length * 5 + 6;
+  });
+
+  checkPageBreak(15);
+  doc.setFontSize(14);
+  doc.setTextColor(...purple);
+  doc.setFont("helvetica", "bold");
+  doc.text(t("projects.title").toUpperCase(), margin, y);
+
+  doc.setDrawColor(...purple);
+  doc.setLineWidth(0.5);
+  doc.line(margin, y + 2, pageWidth - margin, y + 2);
+  y += 10;
+
+  projectsList.forEach((project) => {
+    checkPageBreak(30);
+
+    doc.setFontSize(12);
+    doc.setTextColor(...purple);
+    doc.setFont("helvetica", "bold");
+    doc.text(t(`projects.${project.id}.name`), margin, y);
+    y += 5;
+
+    doc.setFontSize(10.5);
+    doc.setTextColor(...darkText);
+    doc.setFont("helvetica", "bold");
+    doc.text(t(`projects.${project.id}.subtitle`), margin, y);
+    y += 6;
+
+    doc.setFontSize(10);
+    doc.setTextColor(...darkText);
+    doc.setFont("helvetica", "normal");
+    const descriptionLines = doc.splitTextToSize(
+      t(`projects.${project.id}.description`),
+      contentWidth,
+    );
+    checkPageBreak(descriptionLines.length * 5);
+    doc.text(descriptionLines, margin, y);
+    y += descriptionLines.length * 5;
+
+    doc.setFontSize(9);
+    doc.setTextColor(...purple);
+    doc.setFont("helvetica", "italic");
+    const stackPrefix = french
+      ? `${t("projects.stack")} : `
+      : `${t("projects.stack")}: `;
+    const stackLines = doc.splitTextToSize(
+      `${stackPrefix}${project.stack.join(", ")}`,
+      contentWidth,
+    );
+    checkPageBreak(stackLines.length * 5 + 2);
+    doc.text(stackLines, margin, y + 2);
+    y += stackLines.length * 5 + 6;
   });
 
   checkPageBreak(25);
