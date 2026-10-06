@@ -1,5 +1,5 @@
 import type { TFunction } from "i18next";
-import { experiences, github, technologies } from "../data/data";
+import { experiences, github, technologies, linkedin } from "../data/data";
 import { isFrench, pickLocale } from "../lib/locale";
 
 export async function generateCv(t: TFunction, language: string) {
