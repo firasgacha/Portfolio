@@ -59,10 +59,10 @@
   },
   "projects": {
     "title": "Projets",
-    "intro": "Une sélection de réalisations couvrant la communication temps réel, les opérations en entreprise, l'éducation et les applications mobiles.",
+    "intro": "Une sélection de réalisations couvrant la communication temps réel, les opérations en entreprise, l'éducation, les outils de productivité dans le navigateur et les applications mobiles.",
     "features": "Fonctionnalités clés",
     "stack": "Stack technique",
-    "nitrofx": {
+    "meetLab": {
       "name": "Meet Lab",
       "subtitle": "Plateforme de visioconférence sur invitation",
       "description": "Une plateforme de communication vidéo full-stack, conçue pour des réunions exclusives gérées par l'hôte. Architecturée en monorepo, elle n'autorise l'accès aux salles qu'aux hôtes authentifiés et aux invités explicitement conviés via des JWT signés. Les hôtes disposent d'une modération fine, et des signaux de trading (achat/vente) peuvent être diffusés en direct dans les sessions.",
@@ -74,7 +74,7 @@
         "Onboarding par invitation : jetons email expirants, réinitialisation de mot de passe et interception SMTP locale pour les tests."
       ]
     },
-    "blocksiAttendance": {
+    "jobTimeAttendance": {
       "name": "Job Time Attendance",
       "subtitle": "Suivi du temps Slack et web",
       "description": "Un système d'entreprise de suivi du temps et des absences, associant un bot Slack à un tableau de bord React. Les collaborateurs gèrent pointage, pauses déjeuner et demandes d'absence depuis Slack (commandes slash, messages privés ou App Home), avec synchronisation en temps réel vers le web.",
@@ -109,6 +109,18 @@
         "Restauration locale, sauvegardes unidirectionnelles Google Drive et Dropbox, exports JSON, CSV et PDF.",
         "Sauvegardes Android SAF, sélection de chemin desktop, et rappels de maintenance natifs.",
         "Multi-devises, unités km/mi, thèmes clair/sombre, et localisations anglais, français et arabe."
+      ]
+    },
+    "toollab": {
+      "name": "Tool Lab",
+      "subtitle": "Boîte à outils privée dans le navigateur pour PDF, images, documents et audio",
+      "description": "Une boîte à outils gratuite, directement dans le navigateur, pour les PDF, les images, les documents et l'audio. On ouvre un outil, on dépose un fichier et on télécharge le résultat, sans compte, sans abonnement et sans installation. La plupart des traitements s'exécutent localement : les fichiers ne sont pas envoyés à un serveur toollab, et les outils aux capacités limitées côté navigateur sont clairement signalés « Limité ».",
+      "features": [
+        "56 outils répartis entre PDF (33), images (13), documents (5) et audio (5) : fusion, découpage, compression, conversion, OCR, signature, caviardage, découpe audio, etc.",
+        "Traitement confidentiel dans le navigateur avec pdf-lib, PDF.js, Canvas, Tesseract.js et FFmpeg.wasm.",
+        "Outils audio FFmpeg.wasm basés sur SharedArrayBuffer, avec en-têtes COOP/COEP configurés dans Vite et un serveur Node de production sur mesure.",
+        "Catalogues d'outils comme source unique de vérité pour les routes et les mentions « Limité », gardant la page À propos synchronisée avec chaque outil.",
+        "Interface en anglais et en français via un contexte i18n sur mesure, sélection de fichiers par glisser-déposer et navigation fixe responsive."
       ]
     }
   },

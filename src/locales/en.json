@@ -59,10 +59,10 @@
   },
   "projects": {
     "title": "Projects",
-    "intro": "Selected product work spanning real-time communication, workplace operations, education, and mobile apps.",
+    "intro": "Selected product work spanning real-time communication, workplace operations, education, browser-based productivity tools, and mobile apps.",
     "features": "Key features",
     "stack": "Tech stack",
-    "nitrofx": {
+    "meetLab": {
       "name": "Meet Lab",
       "subtitle": "Invite-only video conferencing platform",
       "description": "A secure, full-stack video communication platform designed for exclusive, host-managed meetings. Built as a monorepo, it grants room access only to authenticated hosts and explicitly invited guests via signed JWT tokens. Hosts get granular in-call moderation, while live financial trading signals (buy/sell) can be pushed into active sessions.",
@@ -74,7 +74,7 @@
         "Invitation onboarding with expiring email tokens, password reset links, and local SMTP interception for testing."
       ]
     },
-    "blocksiAttendance": {
+    "jobTimeAttendance": {
       "name": "Job Time Attendance",
       "subtitle": "Automated Slack and web time tracking",
       "description": "An enterprise time-tracking and leave management system that pairs a Slack bot with an interactive React dashboard. Employees clock time, lunch breaks, and time-off from Slack (slash commands, DMs, or App Home) while activity stays in sync with the web app.",
@@ -109,6 +109,18 @@
         "Local snapshot restore, one-way Google Drive and Dropbox backups, and JSON, CSV, and PDF exports.",
         "Android Storage Access Framework backups, desktop path selection, and native maintenance reminders.",
         "Multi-currency support, km/mi units, dark/light themes, and English, French, and Arabic localization."
+      ]
+    },
+    "ToolLab": {
+      "name": "Tool Lab",
+      "subtitle": "Private in-browser toolkit for PDFs, images, documents, and audio",
+      "description": "A free, in-browser toolkit for PDFs, images, documents, and audio. Open a tool, drop a file, and download the result, with no account, no paid plan, and no install. Most processing runs locally in the browser, so files are not uploaded to a toollab server, and tools with browser-side limits are clearly labeled as Limited.",
+      "features": [
+        "56 tools across PDF (33), image (13), document (5), and audio (5) workflows: merge, split, compress, convert, OCR, sign, redact, trim, and more.",
+        "Privacy-first processing in the browser with pdf-lib, PDF.js, Canvas, Tesseract.js, and FFmpeg.wasm.",
+        "FFmpeg.wasm audio tools powered by SharedArrayBuffer, with COOP/COEP headers set in Vite and a custom Node production server.",
+        "Tool catalogs as the single source of truth for routes and Limited notes, keeping the About page in sync with every tool.",
+        "English and French UI via a custom i18n context, drag-and-drop file pickers, and a responsive sticky navigation."
       ]
     }
   },

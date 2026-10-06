@@ -198,7 +198,7 @@ export const hireReasons = [
 
 export const projectsList = [
   {
-    id: "nitrofx",
+    id: "meetLab",
     stack: [
       "React 19",
       "React Router 7",
@@ -215,7 +215,7 @@ export const projectsList = [
     ],
   },
   {
-    id: "blocksiAttendance",
+    id: "jobTimeAttendance",
     stack: [
       "React",
       "Vite",
@@ -251,6 +251,22 @@ export const projectsList = [
       "Local Notifications",
       "Google Drive",
       "Dropbox",
+    ],
+  },
+  {
+    id: "toollab",
+    stack: [
+      "React 18",
+      "TypeScript",
+      "Vite 5",
+      "React Router 6",
+      "Tailwind CSS",
+      "Zustand",
+      "pdf-lib",
+      "PDF.js",
+      "Tesseract.js",
+      "FFmpeg.wasm",
+      "Vitest",
     ],
   },
 ] as const;
