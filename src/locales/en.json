@@ -32,16 +32,16 @@
   "hireMe": {
     "title": "Why Hire Me?",
     "workaholic": "Workaholic",
-    "workaholicDesc": "Deadlines don't chase me, I stay ahead of them.",
+    "workaholicDesc": "Deadlines don't chase me; I stay ahead of them.",
     "communicative": "Communicative",
     "communicativeDesc": "I balance speaking and listening for clear communication.",
     "collaborative": "Collaborative",
-    "collaborativeDesc": "Collaboration is the key to success, teamwork turns vision into reality.",
+    "collaborativeDesc": "Collaboration is the key to success. Teamwork turns vision into reality.",
     "selfMotivated": "Self Motivated",
     "selfMotivatedDesc": "I take proactive steps to accomplish my goals."
   },
   "work": {
-    "title": "Experiences",
+    "title": "Experience",
     "fullStackDeveloper": "Full Stack Developer",
     "webDeveloper": "Web Developer",
     "itTechnician": "IT Technician",
@@ -113,9 +113,9 @@
   "contact": {
     "title": "I'd love to hear from you!",
     "name": "Name",
-    "namePlaceholder": "Please input name",
+    "namePlaceholder": "Enter your name",
     "email": "Email Address",
-    "emailPlaceholder": "Please input email address",
+    "emailPlaceholder": "Enter your email address",
     "message": "Message",
     "messagePlaceholder": "Leave a message",
     "submit": "SUBMIT",

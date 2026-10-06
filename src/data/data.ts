@@ -175,7 +175,7 @@ export const hireReasons = [
   {
     title: "Workaholic",
     image: workaholicImg,
-    description: "Deadlines don't chase me, I stay ahead of them.",
+    description: "Deadlines don't chase me; I stay ahead of them.",
   },
   {
     title: "Communicative",
@@ -186,7 +186,7 @@ export const hireReasons = [
     title: "Collaborative",
     image: collaborativeImg,
     description:
-      "Collaboration is the key to success, teamwork turns vision into reality.",
+      "Collaboration is the key to success. Teamwork turns vision into reality.",
   },
   {
     title: "Self Motivated",
@@ -262,8 +262,14 @@ export const experiences = [
     image: blocksiImg,
     role: "fullStackDeveloper",
     type: "cdi",
-    dates: "11/2024 - Present",
-    location: "Valbonne, Provence-Alpes-Côte d'Azur, France",
+    dates: {
+      en: "11/2024 - Present",
+      fr: "11/2024 - aujourd'hui",
+    },
+    location: {
+      en: "Valbonne, Provence-Alpes-Côte d'Azur, France",
+      fr: "Valbonne, Provence-Alpes-Côte d'Azur, France",
+    },
     responsibilities: {
       fr: [
         "Pilotage du cycle complet de développement de fonctionnalités centrées sur l'expérience utilisateur, garantissant des interfaces intuitives et ergonomiques adaptées aux besoins du secteur éducatif.",
@@ -294,8 +300,14 @@ export const experiences = [
     image: happisoImg,
     role: "fullStackDeveloper",
     type: "cdi",
-    dates: "07/2023 - 11/2024",
-    location: "Metz, Grand Est, France",
+    dates: {
+      en: "07/2023 - 11/2024",
+      fr: "07/2023 - 11/2024",
+    },
+    location: {
+      en: "Metz, Grand Est, France",
+      fr: "Metz, Grand Est, France",
+    },
     responsibilities: {
       fr: [
         "Concevoir et personnaliser des modèles et des composants répondant précisément aux exigences spécifiques de nos clients, afin de garantir une adéquation parfaite entre leurs besoins et nos solutions.",
@@ -320,8 +332,14 @@ export const experiences = [
     image: babackImg,
     role: "fullStackDeveloper",
     type: "internship",
-    dates: "01/2023 - 07/2023",
-    location: "Strasbourg, Grand Est, France",
+    dates: {
+      en: "01/2023 - 07/2023",
+      fr: "01/2023 - 07/2023",
+    },
+    location: {
+      en: "Strasbourg, Grand Est, France",
+      fr: "Strasbourg, Grand Est, France",
+    },
     responsibilities: {
       fr: [
         "Mise en œuvre de la dernière version de l'API Shopify pour une intégration fluide.",
@@ -356,8 +374,14 @@ export const experiences = [
     image: espritImg,
     role: "fullStackDeveloper",
     type: "internship",
-    dates: "07/2022 - 09/2022",
-    location: "Ariana Governorate, Tunisia",
+    dates: {
+      en: "07/2022 - 09/2022",
+      fr: "07/2022 - 09/2022",
+    },
+    location: {
+      en: "Ariana Governorate, Tunisia",
+      fr: "Gouvernorat de l'Ariana, Tunisie",
+    },
     responsibilities: {
       fr: [
         "Concevoir et développer une interface utilisateur conviviale pour la plateforme médicale en ligne.",
@@ -378,8 +402,14 @@ export const experiences = [
     image: undefined,
     role: "webDeveloper",
     type: "freelance",
-    dates: "02/2022 - 05/2022",
-    location: "Paris, France",
+    dates: {
+      en: "02/2022 - 05/2022",
+      fr: "02/2022 - 05/2022",
+    },
+    location: {
+      en: "Paris, France",
+      fr: "Paris, France",
+    },
     responsibilities: {
       fr: [
         "Intégration d'un modèle back-office.",
@@ -398,8 +428,14 @@ export const experiences = [
     image: devNullImg,
     role: "fullStackDeveloper",
     type: "internship",
-    dates: "06/2021 - 09/2021",
-    location: "New York, États-Unis (Remote)",
+    dates: {
+      en: "06/2021 - 09/2021",
+      fr: "06/2021 - 09/2021",
+    },
+    location: {
+      en: "New York, United States (Remote)",
+      fr: "New York, États-Unis (télétravail)",
+    },
     responsibilities: {
       fr: [
         "Implémenter des tests JavaScript.",
@@ -420,8 +456,14 @@ export const experiences = [
     image: unfraundedImg,
     role: "webDeveloper",
     type: "internship",
-    dates: "02/2020 - 06/2020",
-    location: "Gouvernorat de Tunis, Tunisia",
+    dates: {
+      en: "02/2020 - 06/2020",
+      fr: "02/2020 - 06/2020",
+    },
+    location: {
+      en: "Tunis Governorate, Tunisia",
+      fr: "Gouvernorat de Tunis, Tunisie",
+    },
     responsibilities: {
       fr: [
         "Implémenter une interface web utilisateur.",
@@ -440,8 +482,14 @@ export const experiences = [
     image: coroplasteImg,
     role: "itTechnician",
     type: "internship",
-    dates: "07/2019 - 07/2019",
-    location: "Gouvernorat de Nabeul, Tunisia",
+    dates: {
+      en: "07/2019 - 07/2019",
+      fr: "07/2019 - 07/2019",
+    },
+    location: {
+      en: "Nabeul Governorate, Tunisia",
+      fr: "Gouvernorat de Nabeul, Tunisie",
+    },
     responsibilities: {
       fr: [
         "Préparer les processus des différents départements de l'entreprise.",
@@ -449,7 +497,7 @@ export const experiences = [
       ],
       en: [
         "Prepared processes for various company departments.",
-        "Software used: Microsoft Visio, CAO, SAP.",
+        "Software used: Microsoft Visio, CAD, SAP.",
       ],
     },
     technologies: ["Microsoft Visio", "CAO", "SAP"],
@@ -460,8 +508,14 @@ export const experiences = [
     image: tunisairImg,
     role: "itTechnician",
     type: "internship",
-    dates: "07/2018 - 07/2018",
-    location: "Gouvernorat de Tunis, Tunisia",
+    dates: {
+      en: "07/2018 - 07/2018",
+      fr: "07/2018 - 07/2018",
+    },
+    location: {
+      en: "Tunis Governorate, Tunisia",
+      fr: "Gouvernorat de Tunis, Tunisie",
+    },
     responsibilities: {
       fr: [
         "Gestion du serveur.",

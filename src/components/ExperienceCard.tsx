@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { isFrench } from "../lib/locale";
+import { pickLocale } from "../lib/locale";
 import { TimelineIcon } from "./TimelineIcon";
 
 export interface ExperienceCardProps {
@@ -8,8 +8,8 @@ export interface ExperienceCardProps {
   image?: string;
   role: string;
   type: string;
-  dates: string;
-  location: string;
+  dates: { en: string; fr: string };
+  location: { en: string; fr: string };
   responsibilities: {
     fr: string[];
     en: string[];
@@ -33,9 +33,9 @@ export function ExperienceCard({
 }: ExperienceCardProps) {
   const { t, i18n } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(isCurrent);
-  const currentResponsibilities = isFrench(i18n.language)
-    ? responsibilities.fr
-    : responsibilities.en;
+  const currentResponsibilities = pickLocale(i18n.language, responsibilities);
+  const currentDates = pickLocale(i18n.language, dates);
+  const currentLocation = pickLocale(i18n.language, location);
   const alignEnd = !isEven;
 
   const details = (
@@ -106,7 +106,7 @@ export function ExperienceCard({
         <div className="mb-3">
           <span className="badge badge-primary">{t("work.current")}</span>
         </div>
-        <time className="block font-mono text-base italic md:text-lg">{dates}</time>
+        <time className="block font-mono text-base italic md:text-lg">{currentDates}</time>
         <div className="mt-3 flex items-center text-2xl font-bold text-primary md:text-4xl">
           {image ? (
             <img
@@ -125,7 +125,7 @@ export function ExperienceCard({
         <div className="mt-2 text-lg font-semibold md:text-2xl">
           {t(`work.${role}`)} - {t(`work.${type}`)}
         </div>
-        <div className="text-base md:text-lg">{location}</div>
+        <div className="text-base md:text-lg">{currentLocation}</div>
         {toggleButton}
         <div
           className={`overflow-hidden transition-all duration-300 ease-in-out ${
@@ -150,7 +150,7 @@ export function ExperienceCard({
       <div
         className={`mb-10 ${isEven ? "timeline-end md:text-start" : "timeline-start md:text-end"}`}
       >
-        <time className="block font-mono italic">{dates}</time>
+        <time className="block font-mono italic">{currentDates}</time>
         <div
           className={`flex items-center text-lg text-primary ${alignEnd ? "md:justify-end" : ""}`}
         >
@@ -166,7 +166,7 @@ export function ExperienceCard({
         <div>
           {t(`work.${role}`)} - {t(`work.${type}`)}
         </div>
-        <div>{location}</div>
+        <div>{currentLocation}</div>
         {toggleButton}
         <div
           className={`overflow-hidden transition-all duration-300 ease-in-out ${

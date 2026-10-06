@@ -1,7 +1,7 @@
 import type { TFunction } from "i18next";
 import profileImg from "../assets/profile.png";
 import { experiences, github, technologies } from "../data/data";
-import { isFrench } from "../lib/locale";
+import { isFrench, pickLocale } from "../lib/locale";
 
 export async function generateCv(t: TFunction, language: string) {
   const { jsPDF } = await import("jspdf");
@@ -82,9 +82,7 @@ export async function generateCv(t: TFunction, language: string) {
 
   experiences.forEach((exp) => {
     checkPageBreak(35);
-    const responsibilities = french
-      ? exp.responsibilities.fr
-      : exp.responsibilities.en;
+    const responsibilities = pickLocale(language, exp.responsibilities);
 
     doc.setFontSize(12);
     doc.setTextColor(...purple);
@@ -94,7 +92,9 @@ export async function generateCv(t: TFunction, language: string) {
     doc.setFontSize(10);
     doc.setTextColor(...lightText);
     doc.setFont("helvetica", "normal");
-    doc.text(exp.dates, pageWidth - margin, y, { align: "right" });
+    doc.text(pickLocale(language, exp.dates), pageWidth - margin, y, {
+      align: "right",
+    });
     y += 5;
 
     doc.setFontSize(10.5);
@@ -105,7 +105,9 @@ export async function generateCv(t: TFunction, language: string) {
     doc.setFontSize(9);
     doc.setTextColor(...lightText);
     doc.setFont("helvetica", "normal");
-    doc.text(exp.location, pageWidth - margin, y, { align: "right" });
+    doc.text(pickLocale(language, exp.location), pageWidth - margin, y, {
+      align: "right",
+    });
     y += 7;
 
     doc.setFontSize(10);
@@ -120,7 +122,9 @@ export async function generateCv(t: TFunction, language: string) {
     doc.setFontSize(9);
     doc.setTextColor(...purple);
     doc.setFont("helvetica", "italic");
-    const techPrefix = french ? "Technologies : " : "Tech Stack: ";
+    const techPrefix = french
+      ? `${t("work.technologies")} : `
+      : `${t("work.technologies")}: `;
     const techLines = doc.splitTextToSize(
       `${techPrefix}${exp.technologies.join(", ")}`,
       contentWidth,

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "siteTitle": "Firas Gacha - Ingénieur Logiciel Mid-Senior"
+    "siteTitle": "Firas Gacha - Ingénieur logiciel mid-senior"
   },
   "nav": {
     "home": "Accueil",
@@ -17,13 +17,13 @@
   "home": {
     "hey": "Salut !",
     "name": "Je suis Firas",
-    "title": "Ingénieur Logiciel Mid-Senior",
+    "title": "Ingénieur logiciel mid-senior",
     "currentRoleBefore": "Actuellement chez",
     "description": "Je suis un ingénieur logiciel mid-senior, passionné par les frameworks JavaScript. J'ai toujours envie d'apprendre, je cherche constamment à m'améliorer et je suis prêt à relever de nouveaux défis.",
-    "findMe": "Suivez-moi",
+    "findMe": "Retrouvez-moi",
     "emailMe": "Envoyer un email",
     "resume": "CV",
-    "interestedTitle": "Intéressé à travailler avec moi ?",
+    "interestedTitle": "Envie de travailler avec moi ?",
     "contactMe": "Me contacter"
   },
   "tools": {
@@ -32,12 +32,12 @@
   "hireMe": {
     "title": "Pourquoi me recruter ?",
     "workaholic": "Assidu",
-    "workaholicDesc": "Les délais ne me coursent pas : je reste en avance.",
+    "workaholicDesc": "Les délais ne me courent pas après : je les anticipe.",
     "communicative": "Communicatif",
     "communicativeDesc": "J'équilibre parole et écoute pour une communication claire.",
     "collaborative": "Collaboratif",
-    "collaborativeDesc": "La collaboration est la clé du succès, le travail d'équipe transforme la vision en réalité.",
-    "selfMotivated": "Autonome",
+    "collaborativeDesc": "La collaboration est la clé du succès. Le travail d'équipe transforme la vision en réalité.",
+    "selfMotivated": "Auto-motivé",
     "selfMotivatedDesc": "Je prends des mesures proactives pour atteindre mes objectifs."
   },
   "work": {
@@ -57,16 +57,16 @@
   },
   "projects": {
     "title": "Projets",
-    "intro": "Une sélection de produits : communication temps réel, opérations d'entreprise, éducation et applications mobiles.",
+    "intro": "Une sélection de réalisations couvrant la communication temps réel, les opérations en entreprise, l'éducation et les applications mobiles.",
     "features": "Fonctionnalités clés",
     "stack": "Stack technique",
     "nitrofx": {
       "name": "Meet Lab",
       "subtitle": "Plateforme de visioconférence sur invitation",
-      "description": "Une plateforme de communication vidéo full-stack, conçue pour des réunions exclusives gérées par l'hôte. Architecturée en monorepo, elle n'autorise l'accès aux salles qu'aux hôtes authentifiés et aux invités explicitement conviés via des JWT signés. Les hôtes disposent d'une modération fine, et des signaux de trading (buy/sell) peuvent être poussés en direct dans les sessions.",
+      "description": "Une plateforme de communication vidéo full-stack, conçue pour des réunions exclusives gérées par l'hôte. Architecturée en monorepo, elle n'autorise l'accès aux salles qu'aux hôtes authentifiés et aux invités explicitement conviés via des JWT signés. Les hôtes disposent d'une modération fine, et des signaux de trading (achat/vente) peuvent être diffusés en direct dans les sessions.",
       "features": [
-        "Contrôle d'accès strict : invitation explicite, jetons d'invitation hashés, limitation de débit et verrouillage après 5 tentatives.",
-        "Modération hôte : mute/exclusion, permissions, mains levées, bannières et alertes de trading via les data channels WebRTC.",
+        "Contrôle d'accès strict : invitation explicite, jetons d'invitation hachés, limitation de débit et verrouillage après 5 tentatives.",
+        "Modération hôte : mise en sourdine / exclusion, permissions, mains levées, bannières et alertes de trading via les data channels WebRTC.",
         "Annuaire des participants, groupes personnalisés, permissions et invitations groupées avec identifiants envoyés par email.",
         "SFU LiveKit pour l'audio, la vidéo et le partage d'écran WebRTC à faible latence, avec zoom côté spectateur.",
         "Onboarding par invitation : jetons email expirants, réinitialisation de mot de passe et interception SMTP locale pour les tests."
@@ -79,7 +79,7 @@
       "features": [
         "Pointage, pause déjeuner et statuts via Slack Socket Mode ou le tableau de bord web.",
         "Synchronisation bidirectionnelle du profil Slack (users.profile:write) : présent, déjeuner, télétravail, congés, maladie.",
-        "Circuit de validation des congés, historique des demandes et calendrier d'équipe.",
+        "Congés, maladie et télétravail : circuit de validation, historique des demandes et calendrier d'équipe.",
         "Rôles Employé, Manager et Admin, supervision d'équipe et événements de bureau.",
         "Exports paie et comptabilité en CSV, JSON, Excel et PDF, filtrables par bureau.",
         "Sandbox locale : auth de développement, seed de base et exécution complète via Docker."
@@ -111,7 +111,7 @@
     }
   },
   "contact": {
-    "title": "J'adorerais avoir de vos nouvelles !",
+    "title": "Je serais ravi d'échanger avec vous !",
     "name": "Nom",
     "namePlaceholder": "Veuillez entrer votre nom",
     "email": "Adresse email",
